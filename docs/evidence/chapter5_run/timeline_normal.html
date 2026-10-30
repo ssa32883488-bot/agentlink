@@ -1,0 +1,34 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'/>
+<title>链路一：普通询价（发现→短名单→并行RFQ）</title>
+<style>
+body{font-family:'Microsoft YaHei',sans-serif;margin:24px;background:#fff;color:#222}
+h1{font-size:22px} h2{font-size:16px;margin-top:20px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border:1px solid #999;padding:8px;vertical-align:top}
+th{background:#e8eef5}
+.badge{display:inline-block;padding:4px 10px;background:#e8f5e9;border:1px solid #81c784;border-radius:4px}
+pre{background:#f7f7f7;padding:12px;border:1px solid #ddd;white-space:pre-wrap}
+.note{color:#666;font-size:12px}
+</style></head><body>
+<h1>链路一：普通询价（发现→短名单→并行RFQ）</h1>
+<p>case_id: <b>case-e96ee172</b> · path: <b>normal_rfq</b> ·
+<span class='badge'>链路完成</span></p>
+<p class='note'>证据时间线：HTTP调用buyer-a公网API；发现步骤命中梧桐ADP；RFQ经AIP跨云调用供应Partner。</p>
+<h2>步骤时序与时延（ms）</h2>
+<table><tr><th>#</th><th>步骤</th><th>结果</th><th>HTTP时延ms</th><th>摘要</th></tr>
+<tr><td>1</td><td>create_case</td><td>PASS</td><td>5393.5</td><td><code>{"state": "DRAFT", "case_id": "case-e96ee172"}</code></td></tr><tr><td>2</td><td>discover_platform_adp</td><td>PASS</td><td>13335.2</td><td><code>{"state": "SHORTLIST_PENDING", "case_id": "case-e96ee172", "source": "platform_adp", "degrade": false, "cache_hit": false, "elapsed_ms_platform": 11697, "candidate_count": 3, "candidates": [{"agent_id": "supplier-c", "source": "platform_adp", "name": "采联供应商智能体C"}, {"agent_id": "supplier-a", "source": "platform_adp", "name": "采联供应商智能体A"}, {"agent_id": "supplier-b", "source": "platform_adp", "name": "采联供应商智能体B"}]}</code></td></tr><tr><td>3</td><td>confirm_shortlist</td><td>PASS</td><td>1601.6</td><td><code>{"state": "SOURCING", "case_id": "case-e96ee172"}</code></td></tr><tr><td>4</td><td>rfq_parallel_aip</td><td>PASS</td><td>6992.4</td><td><code>{"state": "COMPARE_PENDING", "case_id": "case-e96ee172", "quote_count": 1, "errors": ["supplier-b: 本厂目录无此物料: RM-CASTER-300 (重型脚轮)", "supplier-c: 本厂目录无此物料: RM-CASTER-300 (重型脚轮)"], "suppliers": [null]}</code></td></tr><tr><td>5</td><td>decide_order_or_compare</td><td>FAIL</td><td>7511.1</td><td><code>{}</code></td></tr><tr><td>6</td><td>metrics</td><td>PASS</td><td>0.0</td><td><code>{"access_count": 149, "message_count": 128, "unique_task_ids": 145, "unique_message_ids": 125, "success_rate": 0.9329, "status_breakdown": {"awaiting-completion": 20, "awaiting-input": 1, "200": 118, "500": 10}, "access_trend_14d": [{"date": "2026-10-25", "access": 27}, {"date": "2026-10-26", "access": 43}, {"date": "2026-10-27", "access": 44}, {"date": "2026-10-28", "access": 32}, {"date": "2026-10-29", "access": 3}], "kpi": {"access": 149, "messages": 128, "tasks": 145, "success_rate_pct": 93.3}}</code></td></tr>
+</table>
+<h2>协议作用面</h2>
+<pre>{
+  "wutong_discovery": true,
+  "discovery_url": "https://wt.ioa.pub/discovery/acps-adp-v2/discover",
+  "aip_rfq": true,
+  "amp_expected": "Leader send + Partner receive Access/Message on each RFQ task",
+  "agents": [
+    "buyer-a",
+    "supplier-a",
+    "supplier-b",
+    "supplier-c"
+  ]
+}</pre>
+</body></html>

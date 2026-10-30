@@ -1,0 +1,21 @@
+# 梧桐正式平台 acps-cli 配置（证书申请用）
+# 文档：https://wt.ioa.pub/docs.html#overview
+
+[registry]
+base_url = "https://wt.ioa.pub/registry-server"
+mtls_base_url = "https://wt.ioa.pub/registry-server"
+
+[auth]
+user_token_file = "./.acps-cli/tokens/registry-user.json"
+admin_token_file = "./.acps-cli/tokens/registry-admin.json"
+
+[ca]
+base_url = "https://wt.ioa.pub/ca-server"
+account_keys_dir = "./.acps-cli/keyfiles/accounts"
+private_keys_dir = "./.acps-cli/keyfiles/private"
+certs_dir = "./.acps-cli/keyfiles/certs"
+csr_dir = "./.acps-cli/keyfiles/csr"
+trust_bundle_path = "./.acps-cli/keyfiles/trust-bundle.pem"
+
+[discovery]
+base_url = "https://wt.ioa.pub/discovery"

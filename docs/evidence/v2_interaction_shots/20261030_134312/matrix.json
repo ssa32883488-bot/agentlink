@@ -1,0 +1,144 @@
+{
+  "steps": [
+    {
+      "name": "01_demand",
+      "text": "采购300套重型脚轮",
+      "reply": "已理解并改写需求：采购300套重型脚轮300kg（高端座椅产线，脚轮默认重型300kg）\n发现来源：local_directory，候选 2 家。\n\n检测到冲突信号 C1, C2。若要组群竞价，请另发：「我要组群竞价」。否则请先勾选供应确认交互。\n请在短名单中勾选并「确认并询价」（断点①）。",
+      "state": "SHORTLIST_PENDING",
+      "widgets": [
+        "shortlist_confirm"
+      ],
+      "order_id": null,
+      "logistics_id": null
+    },
+    {
+      "name": "02_shortlist",
+      "text": "已确认短名单，请对以下 candidate_id 调用 rfq.send_batch：supplier-a,supplier-c",
+      "reply": "已对 supplier-a, supplier-c 完成并行初报：\n| 供应 | 品名 | 数量 | 单价 | 货款 | 交期 | 规格 |\n|---|---|---|---|---|---|---|\n| supplier-a | 重型脚轮300kg | 300.0 | 20.0 | 6000.0 | 5天 | 承重300 |\n| supplier-c | 重型脚轮300kg（紧缺） | 300.0 | 22.0 | 6600.0 | 12天 | 承重300 |\n\n请点选是否议价。",
+      "state": "BARGAIN_ASK",
+      "widgets": [
+        "choice_actions"
+      ],
+      "order_id": null,
+      "logistics_id": null
+    },
+    {
+      "name": "03_bargain",
+      "text": "请帮我议价，询问优惠政策",
+      "reply": "议价回执（探量 500）：\n| 供应 | 品名 | 数量 | 单价 | 货款 | 交期 | 规格 |\n|---|---|---|---|---|---|---|\n| supplier-a | 重型脚轮300kg | 500.0 | 18.0 | 9000.0 | 5天 | 承重300 |\n| supplier-c | 重型脚轮300kg（紧缺） | 500.0 | 22.0 | 11000.0 | 12天 | 承重300 |\n\n建议优先考虑 supplier-a（单价 18.0）。 当前 300 未达满 500 件九折；可加到 500 套享优惠。",
+      "state": "BUY_ASK",
+      "widgets": [
+        "choice_actions"
+      ],
+      "order_id": null,
+      "logistics_id": null
+    },
+    {
+      "name": "04_buy",
+      "text": "确认购买：供应商supplier-a 数量500",
+      "reply": "已锁定买法并创建共享订单 `ord-f74f633f-supplier-a-RM-CASTER-300`（效力以双方确认准）。\n请到工单页点击「确认订单」；供应侧亦需确认。确认前对话不得声称已生效。",
+      "state": "ORDER_DRAFT",
+      "widgets": [],
+      "order_id": "ord-f74f633f-supplier-a-RM-CASTER-300",
+      "logistics_id": null
+    },
+    {
+      "name": "05_ask_status",
+      "text": "确认了吗",
+      "reply": "订单 `ord-f74f633f-supplier-a-RM-CASTER-300`：buyer_ack=False supplier_ack=False effective=False。以工单字段为准，不以口头为准。",
+      "state": "ORDER_DRAFT",
+      "widgets": [],
+      "order_id": "ord-f74f633f-supplier-a-RM-CASTER-300",
+      "logistics_id": null
+    },
+    {
+      "name": "06_after_gate",
+      "text": "确认了吗",
+      "reply": "订单 `ord-f74f633f-supplier-a-RM-CASTER-300` 状态：buyer_ack=True supplier_ack=True effective=True。已生效。",
+      "state": "LOGISTICS_HINT",
+      "widgets": [
+        "choice_actions"
+      ],
+      "order_id": "ord-f74f633f-supplier-a-RM-CASTER-300",
+      "logistics_id": null
+    },
+    {
+      "name": "07_logistics",
+      "text": "允许询运",
+      "reply": "物流必填清单已对齐并补齐字段：{'goods_spec': \"{'rated_load_kg': 300, 'material': '尼龙+轴承', 'unit': '只'}\", 'chargeable_qty': 500, 'origin': '沧州', 'destination': '保定', 'ship_date': '5天后可出库'}\n运力方案：{'service': '标准公路', 'origin': '沧州', 'destination': '保定', 'eta_days': 3, 'freight': 880.0, 'goods_spec': \"{'rated_load_kg': 300, 'material': '尼龙+轴承', 'unit': '只'}\", 'ship_date': '5天后可出库'}\n已建物流工单 `log-ord-f74f633f-supplier-a-RM-CASTER-300`，请双方确认。",
+      "state": "LOGISTICS_PENDING",
+      "widgets": [],
+      "order_id": "ord-f74f633f-supplier-a-RM-CASTER-300",
+      "logistics_id": "log-ord-f74f633f-supplier-a-RM-CASTER-300"
+    },
+    {
+      "name": "08_gates",
+      "order_effective": true,
+      "logistics_effective": true,
+      "order_id": "ord-f74f633f-supplier-a-RM-CASTER-300",
+      "logistics_id": "log-ord-f74f633f-supplier-a-RM-CASTER-300"
+    },
+    {
+      "name": "g01_demand",
+      "text": "采购300套重型脚轮",
+      "reply": "已理解并改写需求：采购300套重型脚轮300kg（高端座椅产线，脚轮默认重型300kg）\n发现来源：local_directory，候选 2 家。\n\n检测到冲突信号 C1, C2。若要组群竞价，请另发：「我要组群竞价」。否则请先勾选供应确认交互。\n请在短名单中勾选并「确认并询价」（断点①）。",
+      "state": "SHORTLIST_PENDING",
+      "widgets": [
+        "shortlist_confirm"
+      ],
+      "order_id": null,
+      "logistics_id": null
+    },
+    {
+      "name": "g02_group_ask",
+      "text": "我要组群竞价",
+      "reply": "建议组群竞价（信号 ['C1', 'C2']）。主持=本采购智能体。\n请勾选成员，并点「确认组群竞价」。",
+      "state": "GROUP_ASK",
+      "widgets": [
+        "shortlist_confirm",
+        "choice_actions"
+      ],
+      "order_id": null,
+      "logistics_id": null
+    },
+    {
+      "name": "g03_members",
+      "text": "已确认短名单，请对以下 candidate_id 调用 rfq.send_batch：supplier-a,supplier-c",
+      "reply": "已记录入群成员 ['supplier-a', 'supplier-c']，请再点「确认组群竞价」。",
+      "state": "GROUP_ASK",
+      "widgets": [],
+      "order_id": null,
+      "logistics_id": null
+    },
+    {
+      "name": "g04_confirm",
+      "text": "确认进行组群竞价",
+      "reply": "【主持开群】成员 ['supplier-a', 'supplier-c']（transport=local_shared_context）\n| 供应 | 品名 | 数量 | 单价 | 货款 | 交期 | 规格 |\n|---|---|---|---|---|---|---|\n| supplier-a | 重型脚轮300kg | 300.0 | 20.0 | 6000.0 | 5天 | 承重300 |\n| supplier-c | 重型脚轮300kg（紧缺） | 300.0 | 22.0 | 6600.0 | 12天 | 承重300 |\n请决断下单对象。",
+      "state": "GROUP_DECIDE",
+      "widgets": [
+        "choice_actions"
+      ],
+      "order_id": null,
+      "logistics_id": null
+    },
+    {
+      "name": "g05_decide",
+      "text": "组群决断：与supplier-a下单",
+      "reply": "已决断与 supplier-a 下单，订单 `ord-58e160f3-supplier-a-RM-CASTER-300`。\n【主持】现邀请物流入群。物流必填：[{'key': 'goods_spec', 'label': '货物规格摘要', 'holder': 'supplier_or_order'}, {'key': 'chargeable_qty', 'label': '计费相关量（件数/重量/体积口径）', 'holder': 'order'}, {'key': 'origin', 'label': '起运地', 'holder': 'supplier'}, {'key': 'destination', 'label': '到达地', 'holder': 'buyer'}, {'key': 'ship_date', 'label': '期望出库/发货时间', 'holder': 'supplier'}]\n发送「完成组群物流」以生成系列工单。",
+      "state": "GROUP_LOGISTICS",
+      "widgets": [],
+      "order_id": "ord-58e160f3-supplier-a-RM-CASTER-300",
+      "logistics_id": null
+    },
+    {
+      "name": "g06_tickets",
+      "text": "完成组群物流",
+      "reply": "系列工单已生成：货单 `ord-58e160f3-supplier-a-RM-CASTER-300` + 物流 `log-ord-58e160f3-supplier-a-RM-CASTER-300`。请各方 Gate 确认。",
+      "state": "GROUP_TICKETS",
+      "widgets": [],
+      "order_id": "ord-58e160f3-supplier-a-RM-CASTER-300",
+      "logistics_id": "log-ord-58e160f3-supplier-a-RM-CASTER-300"
+    }
+  ],
+  "out": "F:\\code\\智能体协议\\项目开发\\agentlink\\docs\\evidence\\v2_interaction_shots\\20261030_134312"
+}

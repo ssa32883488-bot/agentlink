@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "dgSpecHash": "YyXy7OZbRBE=",
+  "success": true,
+  "projectFilePath": "F:\\code\\智能体协议\\项目开发\\agentlink\\docs\\evidence\\verify_ui_shots\\_build_report\\VerifyReport.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\32081\\.nuget\\packages\\documentformat.openxml\\3.2.0\\documentformat.openxml.3.2.0.nupkg.sha512",
+    "C:\\Users\\32081\\.nuget\\packages\\documentformat.openxml.framework\\3.2.0\\documentformat.openxml.framework.3.2.0.nupkg.sha512",
+    "C:\\Users\\32081\\.nuget\\packages\\system.io.packaging\\8.0.1\\system.io.packaging.8.0.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "获取包漏洞数据时出错: 无法加载源 https://api.nuget.org/v3/index.json 的服务索引。"
+    }
+  ]
+}

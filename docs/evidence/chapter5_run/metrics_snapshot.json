@@ -1,0 +1,41 @@
+{
+  "access_count": 155,
+  "message_count": 134,
+  "unique_task_ids": 151,
+  "unique_message_ids": 131,
+  "success_rate": 0.9097,
+  "status_breakdown": {
+    "awaiting-completion": 20,
+    "awaiting-input": 1,
+    "200": 120,
+    "500": 14
+  },
+  "access_trend_14d": [
+    {
+      "date": "2026-10-25",
+      "access": 27
+    },
+    {
+      "date": "2026-10-26",
+      "access": 43
+    },
+    {
+      "date": "2026-10-27",
+      "access": 44
+    },
+    {
+      "date": "2026-10-28",
+      "access": 32
+    },
+    {
+      "date": "2026-10-29",
+      "access": 9
+    }
+  ],
+  "kpi": {
+    "access": 155,
+    "messages": 134,
+    "tasks": 151,
+    "success_rate_pct": 91.0
+  }
+}

@@ -1,0 +1,77 @@
+# ---- secrets & local env ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+eab.json
+config/platform_aics.env
+config/platform_aics.yaml
+config/acps_platform.yaml
+scripts/_tmp_*.env
+scripts/**/*_patch.env
+**/*_push.env
+**/_env_*.env
+
+# ---- runtime / caches ----
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+Thumbs.db
+*.log
+
+# ---- local data & workspaces ----
+data/
+!data/.gitkeep
+logs/
+workspaces/
+.amp/
+.wit/
+.acps-cli/
+
+# ---- certificates (platform-issued) ----
+certs/platform/
+certs/**/agent-key.pem
+certs/**/server-key.pem
+
+# ---- build / deploy staging ----
+dist/
+!dist/README.md
+*.egg-info/
+build/
+.eggs/
+
+# ---- heavy / optional tooling ----
+java-suppliers/.tools/
+java-suppliers/.gradle/
+java-suppliers/**/build/
+java-suppliers/**/.gradle/
+
+# ---- evidence screenshots & large binaries (keep indexes in git if needed) ----
+docs/evidence/**/*.png
+docs/evidence/**/*.jpg
+docs/evidence/**/*.jpeg
+docs/evidence/**/*.webp
+docs/evidence/**/*.mp4
+docs/report_draft/**/*.png
+docs/materials/**/*.docx
+docs/materials/**/*.pptx
+docs/materials/**/*.pdf
+
+# ---- IDE ----
+.cursor/
+.idea/
+.vscode/
+*.swp
+
+# ---- release artifacts ----
+release/
+*.zip
+!vendor/**/*.whl

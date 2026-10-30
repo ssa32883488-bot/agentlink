@@ -1,0 +1,199 @@
+{
+  "run_id": "20261030_194944",
+  "url": "https://ashui.online:8090/",
+  "demand": "帮我采购500脚轮和400坐垫",
+  "notes": {
+    "normal": {
+      "shortlist_clicked": true,
+      "flow": "case-e9d68c39 · BARGAIN_ASK · 发现:platform_adp"
+    },
+    "group": {
+      "group_confirm_clicked": true,
+      "room_opened": true,
+      "plan_clicked": true,
+      "flow": "case-0789948b · GROUP_DECIDE · 发现:platform_adp"
+    }
+  },
+  "steps": [
+    {
+      "step": 1,
+      "label": "N00_home",
+      "file": "01_N00_home.png",
+      "note": "新建对话首页",
+      "chat": "",
+      "error": null,
+      "flow": "",
+      "room_open": false,
+      "log_json": "logs/01_N00_home.json",
+      "log_md": "logs/01_N00_home.md"
+    },
+    {
+      "step": 2,
+      "label": "N01_after_demand",
+      "file": "02_N01_after_demand.png",
+      "note": "发送后界面",
+      "chat": "帮我采购500脚轮和400坐垫",
+      "error": null,
+      "flow": "case-e9d68c39 · SHORTLIST_PENDING · 发现:platform_adp",
+      "room_open": false,
+      "log_json": "logs/02_N01_after_demand.json",
+      "log_md": "logs/02_N01_after_demand.md"
+    },
+    {
+      "step": 3,
+      "label": "N01b_trails_expanded",
+      "file": "03_N01b_trails_expanded.png",
+      "note": "展开处理轨迹",
+      "chat": "",
+      "error": null,
+      "flow": "case-e9d68c39 · SHORTLIST_PENDING · 发现:platform_adp",
+      "room_open": false,
+      "log_json": "logs/03_N01b_trails_expanded.json",
+      "log_md": "logs/03_N01b_trails_expanded.md"
+    },
+    {
+      "step": 4,
+      "label": "N02_shortlist_confirm",
+      "file": "04_N02_shortlist_confirm.png",
+      "note": "已勾选并提交短名单/组群",
+      "chat": "",
+      "error": null,
+      "flow": "case-e9d68c39 · BARGAIN_ASK · 发现:platform_adp",
+      "room_open": false,
+      "log_json": "logs/04_N02_shortlist_confirm.json",
+      "log_md": "logs/04_N02_shortlist_confirm.md"
+    },
+    {
+      "step": 5,
+      "label": "N03_decide_try",
+      "file": "05_N03_decide_try.png",
+      "note": "未找到选项: ('下单', '采纳', '最优', '确认', '继续', '订货')",
+      "chat": "",
+      "error": null,
+      "flow": "case-e9d68c39 · BARGAIN_ASK · 发现:platform_adp",
+      "room_open": false,
+      "log_json": "logs/05_N03_decide_try.json",
+      "log_md": "logs/05_N03_decide_try.md"
+    },
+    {
+      "step": 6,
+      "label": "N04_normal_end",
+      "file": "06_N04_normal_end.png",
+      "note": "普通询价路径阶段结束",
+      "chat": "",
+      "error": null,
+      "flow": "case-e9d68c39 · BARGAIN_ASK · 发现:platform_adp",
+      "room_open": false,
+      "log_json": "logs/06_N04_normal_end.json",
+      "log_md": "logs/06_N04_normal_end.md"
+    },
+    {
+      "step": 7,
+      "label": "G00_home",
+      "file": "07_G00_home.png",
+      "note": "组群路径新建对话",
+      "chat": "",
+      "error": null,
+      "flow": "",
+      "room_open": false,
+      "log_json": "logs/07_G00_home.json",
+      "log_md": "logs/07_G00_home.md"
+    },
+    {
+      "step": 8,
+      "label": "G01_after_demand",
+      "file": "08_G01_after_demand.png",
+      "note": "发送后界面",
+      "chat": "帮我采购500脚轮和400坐垫",
+      "error": null,
+      "flow": "case-0789948b · SHORTLIST_PENDING · 发现:platform_adp",
+      "room_open": false,
+      "log_json": "logs/08_G01_after_demand.json",
+      "log_md": "logs/08_G01_after_demand.md"
+    },
+    {
+      "step": 9,
+      "label": "G01b_trails",
+      "file": "09_G01b_trails.png",
+      "note": "展开处理轨迹（进入组群前）",
+      "chat": "",
+      "error": null,
+      "flow": "case-0789948b · SHORTLIST_PENDING · 发现:platform_adp",
+      "room_open": false,
+      "log_json": "logs/09_G01b_trails.json",
+      "log_md": "logs/09_G01b_trails.md"
+    },
+    {
+      "step": 10,
+      "label": "G02_enter_group",
+      "file": "10_G02_enter_group.png",
+      "note": "发送后界面",
+      "chat": "我要组群竞价",
+      "error": null,
+      "flow": "case-0789948b · GROUP_ASK · 发现:platform_adp",
+      "room_open": false,
+      "log_json": "logs/10_G02_enter_group.json",
+      "log_md": "logs/10_G02_enter_group.md"
+    },
+    {
+      "step": 11,
+      "label": "G03_confirm_group_members",
+      "file": "11_G03_confirm_group_members.png",
+      "note": "已勾选并提交短名单/组群",
+      "chat": "",
+      "error": null,
+      "flow": "case-0789948b · GROUP_DECIDE · 发现:platform_adp",
+      "room_open": true,
+      "log_json": "logs/11_G03_confirm_group_members.json",
+      "log_md": "logs/11_G03_confirm_group_members.md"
+    },
+    {
+      "step": 12,
+      "label": "G04_group_room",
+      "file": "12_G04_group_room.png",
+      "note": "组群聊天室已出现内容",
+      "chat": "",
+      "error": null,
+      "flow": "case-0789948b · GROUP_DECIDE · 发现:platform_adp",
+      "room_open": true,
+      "log_json": "logs/12_G04_group_room.json",
+      "log_md": "logs/12_G04_group_room.md"
+    },
+    {
+      "step": 13,
+      "label": "G05_room_before_decide",
+      "file": "13_G05_room_before_decide.png",
+      "note": "汇总前/决策前聊天室",
+      "chat": "",
+      "error": null,
+      "flow": "case-0789948b · GROUP_DECIDE · 发现:platform_adp",
+      "room_open": true,
+      "log_json": "logs/13_G05_room_before_decide.json",
+      "log_md": "logs/13_G05_room_before_decide.md"
+    },
+    {
+      "step": 14,
+      "label": "G06_pick_plan",
+      "file": "14_G06_pick_plan.png",
+      "note": "点击: 全量覆盖 · 2 品拆单 · 重型脚轮300kg←supplier-a + 记忆海绵坐垫←supplier-c · 合计",
+      "chat": "",
+      "error": null,
+      "flow": "case-0789948b · GROUP_DECIDE · 发现:platform_adp",
+      "room_open": false,
+      "log_json": "logs/14_G06_pick_plan.json",
+      "log_md": "logs/14_G06_pick_plan.md"
+    },
+    {
+      "step": 15,
+      "label": "G07_group_end",
+      "file": "15_G07_group_end.png",
+      "note": "组群路径阶段结束",
+      "chat": "",
+      "error": null,
+      "flow": "case-0789948b · GROUP_DECIDE · 发现:platform_adp",
+      "room_open": false,
+      "log_json": "logs/15_G07_group_end.json",
+      "log_md": "logs/15_G07_group_end.md"
+    }
+  ]
+}

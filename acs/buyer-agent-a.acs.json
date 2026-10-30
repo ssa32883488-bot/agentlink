@@ -1,0 +1,154 @@
+{
+  "aic": "1.2.156.3088.1.BUPT.2HY2P9.IFL6BJ.MWEDJS.0GUC",
+  "active": true,
+  "lastModifiedTime": "2026-10-28T08:06:00+08:00",
+  "protocolVersion": "02.02",
+  "name": "采联采购智能体A",
+  "description": "面向高档座椅产线的采购协同智能体，代表河北保定家具厂（河北省保定市竞秀区朝阳大街168号，邮编071000）在平台上发现供应商、发起询价比价、议价下单、组群竞价，并协同物流完成零部件到厂。主营高档办公/家用座椅整椅制造与装配。需求聚焦单椅BOM高品质零部件：扶手组件、五星脚底座、气压棒、钢管制件椅架、重型脚轮（300kg）、记忆海绵坐垫、高档座椅面料；关注质量、交期与到岸总成本。拒绝：非采购类任务、向供应商泄露私有预算、越权自动成交、处理非座椅零部件寻源。",
+  "version": "1.0.0",
+  "provider": {
+    "countryCode": "CN",
+    "organization": "后浪队",
+    "department": "AgentLink",
+    "url": "https://ashui.online:8010",
+    "license": "腾讯云端点 HTTPS+Let's Encrypt(ashui.online)；阿里云端点 HTTPS 公网IP。审核通过后使用平台 CA mTLS",
+    "name": "李佳铖",
+    "email": "3572962849@qq.com",
+    "domainRegistrations": [
+      {
+        "domain": "ashui.online",
+        "registrationNumber": "NONE",
+        "registrationType": "WHOIS"
+      }
+    ]
+  },
+  "securitySchemes": {
+    "mtls": {
+      "type": "mutualTLS",
+      "description": "智能体间 mTLS 双向认证"
+    }
+  },
+  "endPoints": [
+    {
+      "url": "https://ashui.online:8010/rpc",
+      "transport": "JSONRPC",
+      "security": [
+        {
+          "mtls": []
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "notification": false,
+    "messageQueue": []
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "agentlink.buyer.discover",
+      "name": "供应商发现与短名单",
+      "description": "按高档座椅零部件需求在平台发现候选供应商并形成短名单，供人工确认后再询价。不自动把未确认供应商纳入成交。",
+      "version": "1.0.0",
+      "tags": ["procurement", "discovery", "shortlist", "buyer-a", "agentlink", "baoding"],
+      "examples": [
+        "发现能供应重型脚轮300kg且可供量不少于500的供应商",
+        "为记忆海绵坐垫和高档面料生成候选短名单"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.buyer.rfq",
+      "name": "批量询价与比价",
+      "description": "向已确认短名单发起结构化RFQ，收集报价并做货价/交期/可供量归一比较。收货地为河北保定（071000）。不自动选定成交供应商。",
+      "version": "1.0.0",
+      "tags": ["procurement", "rfq", "quote-compare", "buyer-a", "agentlink"],
+      "examples": [
+        "对短名单三家发起重型脚轮500件统一规格询价并比较总价与交期",
+        "比较扶手组件、五星脚、气压棒的多家报价"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.buyer.group-bidding",
+      "name": "发起多智能体组群竞价",
+      "description": "在采购案中发起多智能体组群竞价，组织多家供应商智能体在同一竞价语境下出价与回执，便于并行比选。不替代人工对最终成交的确认。",
+      "version": "1.0.0",
+      "tags": ["procurement", "group-bidding", "multi-agent", "buyer-a", "agentlink"],
+      "examples": [
+        "对脚轮短名单发起组群竞价",
+        "就椅架与扶手组合需求开启多智能体竞价场次"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.buyer.promo-scheme",
+      "name": "优惠门槛推演",
+      "description": "基于公开优惠政策做凑量、拆单等方案推演，优化到岸成本，不向供应商泄露采购预算。",
+      "version": "1.0.0",
+      "tags": ["procurement", "promotion", "scheme", "buyer-a", "agentlink"],
+      "examples": [
+        "脚轮差多少才能吃到满500九折",
+        "拆单还是凑门槛更划算"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.buyer.negotiate",
+      "name": "议价沟通",
+      "description": "对目标供应商发起议价沟通，围绕单价、交期、促销达标与运费补贴协商，结果需回写采购案并由人工确认。",
+      "version": "1.0.0",
+      "tags": ["procurement", "negotiate", "buyer-a", "agentlink"],
+      "examples": [
+        "就沧州组件厂脚轮报价发起议价，争取贴近满量折扣门槛"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.buyer.case-progress",
+      "name": "采购案状态推进",
+      "description": "维护采购案从发现、短名单、询价、比价、议价、订单草案到合同待定的状态推进，关键门禁需人工确认。",
+      "version": "1.0.0",
+      "tags": ["procurement", "case", "workflow", "buyer-a", "agentlink"],
+      "examples": [
+        "把当前案推进到询价对比待决策",
+        "确认短名单后进入询价"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.buyer.freight-request",
+      "name": "收货地运力需求发起",
+      "description": "以保定（071000）为收货地，向物流智能体发起结构化运力需求，获取费用与时效，用于到岸成本核算。不代替物流做承运履约。",
+      "version": "1.0.0",
+      "tags": ["procurement", "logistics", "freight", "buyer-a", "baoding", "agentlink"],
+      "examples": [
+        "从沧州发重型脚轮到保定，询经济拼车运费与时效"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    }
+  ],
+  "visibility": "public",
+  "certificate": {
+    "altNames": {
+      "dns": ["ashui.online", "www.ashui.online"],
+      "ip": ["81.70.46.119"]
+    },
+    "requestedValidity": 825
+  }
+}

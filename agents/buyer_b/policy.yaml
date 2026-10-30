@@ -1,0 +1,22 @@
+authz_level: negotiate
+max_total_cost: 12000
+# 承德办公家具制造厂 · 平价办公/家用
+organization: 承德办公家具制造厂
+product_line: economy_seat
+single_source_only: false
+max_unit_price: 50
+allow_activate_order: false
+hard_constraints:
+  - "平价物料优先（标准脚轮/普通海绵面料）"
+  - "单笔不超过限额"
+preferred_materials:
+  - RM-CASTER-200
+  - RM-FOAM-STD
+  - RM-FABRIC-STD
+merchant:
+  trade_name: 承德办公家具制造厂
+  province: 河北
+  city: 承德
+  postal_code: "067000"
+  address: 河北省承德市双桥区武烈路88号
+  ship_to_city: 承德

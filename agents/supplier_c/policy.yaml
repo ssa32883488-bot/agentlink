@@ -1,0 +1,74 @@
+strategy_tag: scarce-substitute
+# 山西太原组件厂 · 结构件+软垫；跨省运费补贴
+# 无底价：挂牌价仅经 promotions 优惠；采购议价也只走活动门槛
+organization: 太原组件厂
+ship_from_city: 太原
+kg_per_unit: 0.42
+default_tax_included: true
+buffer_days: 2
+production_days: 5
+available_quantity: 200
+default_sku: RM-TUBE-STEEL
+base_cost: 85.0
+markup: 0.176
+bargain_discount: 0
+max_unit_concession_pct: 0
+catalog:
+  - sku: RM-ARMREST
+    name: 扶手组件
+    unit_price: 35
+    available_quantity: 200
+    lead_time_days: 5
+  - sku: RM-BASE-NYLON
+    name: 五星脚底座
+    unit_price: 35
+    available_quantity: 180
+    lead_time_days: 6
+  - sku: RM-TUBE-STEEL
+    name: 钢管制件椅架
+    unit_price: 100
+    available_quantity: 120
+    lead_time_days: 8
+  - sku: RM-CASTER-200
+    name: 标准脚轮200kg
+    unit_price: 15
+    available_quantity: 800
+    lead_time_days: 5
+  - sku: RM-FOAM-MEM
+    name: 记忆海绵坐垫
+    unit_price: 50
+    available_quantity: 150
+    lead_time_days: 7
+  - sku: RM-FOAM-STD
+    name: 普通海绵坐垫
+    unit_price: 20
+    available_quantity: 200
+    lead_time_days: 6
+promotions:
+  line_qty_discount:
+    - label: 钢管制件椅架满500件打8.5折
+      skus: [RM-TUBE-STEEL]
+      threshold_qty: 500
+      discount_pct: 0.15
+  cross_province_subsidy:
+    enabled: true
+    label: 跨省运费补贴一半
+    origin_province: 山西
+    min_qty: 1
+    subsidy_pct_of_freight: 0.5
+    uncertain: true
+    note: 只要跨省运输可申请运费补贴一半（演示政策，审核不确定）
+merchant:
+  trade_name: 太原组件厂
+  province: 山西
+  city: 太原
+  postal_code: "030000"
+  address: 山西省太原市小店区长治路66号
+substitutes:
+  - sku: RM-CASTER-200
+    name: 标准脚轮（替代重型）
+    rated_load_kg_min: 200
+    unit_price: 15.0
+    available_quantity: 800
+    lead_time_days: 5
+split_batch_days: [5, 12]

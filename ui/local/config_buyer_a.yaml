@@ -1,0 +1,11 @@
+domain_id: buyer-a
+domain_title: 采购商A · 采联控制台（本地）
+ui_port: 8090
+agents:
+  - id: buyer-a
+    title: 采购商A
+    role: buyer
+    api_base: http://127.0.0.1:8010
+    rpc_hint: Leader HTTP API
+    blurb: 本地 HTTP · commerce_v2
+    workspace: chat

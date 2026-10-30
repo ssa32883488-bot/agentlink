@@ -1,0 +1,68 @@
+currency: CNY
+# 采联智运 · 全国连锁：实际重 vs 体积重取大；服务档 + 路线系数
+organization: 采联智运物流
+default_service: economy
+max_weight_kg: 20000
+bulky_dim_factor_kg_per_m3: 200
+# 体积重量：cm³/6000；抛货（面料/海绵）按 1方=200kg
+services:
+  express:
+    label: 极速达
+    eta_days_min: 1
+    eta_days_max: 2
+    base_fee: 350
+    base_kg: 100
+    base_m3: 1.0
+    per_kg: 1.5
+    per_m3: 300
+    hint: 专车直送/航空 · 紧急补件、高定面料
+  standard:
+    label: 标准快线
+    eta_days_min: 3
+    eta_days_max: 4
+    base_fee: 180
+    base_kg: 100
+    base_m3: 1.0
+    per_kg: 0.8
+    per_m3: 150
+    hint: 9.6米厢车/甩挂 · 常规批次
+  economy:
+    label: 经济拼车
+    eta_days_min: 5
+    eta_days_max: 7
+    base_fee: 80
+    base_kg: 100
+    base_m3: 1.0
+    per_kg: 0.4
+    per_m3: 80
+    hint: 13米挂车/专线拼车 · 大批量备货
+route_bands:
+  - name: 同省同城
+    max_km: 300
+    factor: 1.0
+  - name: 邻省华北
+    max_km: 800
+    factor: 1.2
+  - name: 跨大区全国
+    max_km: 99999
+    factor: 1.5
+# 兼容旧字段
+base_rate_per_kg: 0.8
+min_charge: 80
+eta_days_base: 3
+eta_days_per_1000km: 1
+zones:
+  local:
+    multiplier: 1.0
+    distance_km: 150
+  domestic:
+    multiplier: 1.2
+    distance_km: 500
+  remote:
+    multiplier: 1.5
+    distance_km: 1200
+merchant:
+  trade_name: 采联智运物流
+  province: 全国
+  city: 各城市
+  address: 各城市均设分公司，可从任意发货地揽收

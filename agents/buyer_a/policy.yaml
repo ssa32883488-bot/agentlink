@@ -1,0 +1,24 @@
+authz_level: negotiate
+max_total_cost: 25000
+# 保定家具厂 · 高档座椅产线
+organization: 保定家具厂
+product_line: premium_seat
+hard_constraints:
+  - "高档座椅物料优先（重型脚轮/记忆海绵/高档面料）"
+  - "不晚于交付截止日期"
+allow_activate_order: false
+default_tags:
+  - supply
+  - quote
+  - agentlink
+preferred_materials:
+  - RM-CASTER-300
+  - RM-FOAM-MEM
+  - RM-FABRIC-PRO
+merchant:
+  trade_name: 保定家具厂
+  province: 河北
+  city: 保定
+  postal_code: "071000"
+  address: 河北省保定市竞秀区朝阳大街168号
+  ship_to_city: 保定

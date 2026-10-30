@@ -1,0 +1,22 @@
+# 复制为 acps_platform.yaml 并填写平台地址
+# python -m scripts.enroll_platform --agent buyer-a
+
+registry_url: https://registry.example.com
+registry_mtls_url: https://registry-mtls.example.com
+ca_url: https://ca.example.com
+discovery_url: https://discovery.example.com
+public_endpoint: http://81.70.46.119:8010/rpc
+mq_url: ""
+
+provider:
+  organization: 后浪队
+  country_code: CN
+  url: http://81.70.46.119
+  email: 3572962849@qq.com
+  name: 李佳铖
+
+certificate:
+  dns: []
+  ip:
+    - 81.70.46.119
+  requested_validity: 49

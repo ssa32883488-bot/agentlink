@@ -1,0 +1,66 @@
+{
+  "at": "2026-10-26T04:14:09.900705+00:00",
+  "case_id": "case-f681cd6c",
+  "discovery": {
+    "source": "platform_adp",
+    "degrade": false,
+    "degrade_reason": null,
+    "cache_hit": false,
+    "discovery_url": "https://wt.ioa.pub/discovery/acps-adp-v2/discover",
+    "elapsed_ms": 29182,
+    "candidates": [
+      {
+        "agent_id": "supplier-b",
+        "name": "采联供应商智能体B",
+        "source": "platform_adp",
+        "source_label": "平台发现",
+        "degrade": false
+      },
+      {
+        "agent_id": "supplier-a",
+        "name": "采联供应商智能体A",
+        "source": "platform_adp",
+        "source_label": "平台发现",
+        "degrade": false
+      },
+      {
+        "agent_id": "supplier-c",
+        "name": "采联供应商智能体C",
+        "source": "platform_adp",
+        "source_label": "平台发现",
+        "degrade": false
+      }
+    ]
+  },
+  "rfq": {
+    "state": "COMPARE_PENDING",
+    "quote_count": 3,
+    "errors": []
+  },
+  "amp_buyer": {
+    "access_new": 3,
+    "message_new": 3,
+    "pairs": [
+      {
+        "taskId": "task-1c0c17b4f727",
+        "messageId": "msg-task-1c0c17b4f727"
+      },
+      {
+        "taskId": "task-e6eabfce49c8",
+        "messageId": "msg-task-e6eabfce49c8"
+      },
+      {
+        "taskId": "task-2bd358cc6a4f",
+        "messageId": "msg-task-2bd358cc6a4f"
+      }
+    ]
+  },
+  "checks": {
+    "has_candidates": true,
+    "platform_or_labeled_degrade": true,
+    "amp_message_send_count": 3,
+    "messageId_equals_msg_taskId": true,
+    "supplier_abc_all_platform": true
+  },
+  "note": "供应侧 receive 请在阿里云 logs/amp_*.jsonl 用同 taskId 核对；Kafka topic=amp.access/amp.message"
+}

@@ -1,0 +1,11 @@
+domain_id: logistics
+domain_title: 物流智运 · 物流控制台
+ui_port: 8095
+agents:
+  - id: logistics
+    title: 物流
+    role: partner
+    api_base: https://127.0.0.1:8015
+    rpc_hint: AIP 运费报价 Partner
+    blurb: 独立进程 :8015
+    workspace: peer

@@ -1,0 +1,138 @@
+{
+  "aic": "1.2.156.3088.1.BUPT.2HY2P9.WP4OOG.AE0C7A.1CHP",
+  "active": true,
+  "lastModifiedTime": "2026-10-28T08:06:00+08:00",
+  "protocolVersion": "02.02",
+  "name": "采联供应商智能体A",
+  "description": "沧州五金结构件供应智能体，代表沧州组件厂（河北省沧州市运河区渤海路56号，邮编061000）。承接座椅零部件询价与报价，主打价格竞争力与脚轮大批量优惠（RM-CASTER-300/200 单品满500件该单品总价九折），并可应询价方要求向物流侧询运。主营：扶手组件、五星脚底座、气压棒、重型/标准脚轮、钢管制件椅架。挂牌价按目录与公开促销结算，无私下底价通道。拒绝：窥探他方报价、无授权承诺真实发货结算、处理非本厂目录SKU。",
+  "version": "1.0.0",
+  "provider": {
+    "countryCode": "CN",
+    "organization": "后浪队",
+    "department": "AgentLink",
+    "url": "https://39.105.20.113:8011",
+    "license": "腾讯云端点 HTTPS+Let's Encrypt(ashui.online)；阿里云端点 HTTPS 公网IP。审核通过后使用平台 CA mTLS",
+    "name": "李佳铖",
+    "email": "3572962849@qq.com",
+    "domainRegistrations": [
+      {
+        "domain": "39.105.20.113",
+        "registrationNumber": "NONE",
+        "registrationType": "WHOIS"
+      }
+    ]
+  },
+  "securitySchemes": {
+    "mtls": {
+      "type": "mutualTLS",
+      "description": "智能体间 mTLS 双向认证"
+    }
+  },
+  "endPoints": [
+    {
+      "url": "https://39.105.20.113:8011/rpc",
+      "transport": "JSONRPC",
+      "security": [
+        {
+          "mtls": []
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "notification": false,
+    "messageQueue": []
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "agentlink.supplier.quote",
+      "name": "获取产品报价与规格",
+      "description": "根据结构化询价返回目录单价、规格说明、可供量与交期。发货地沧州。无法满足时澄清或拒绝。",
+      "version": "1.0.0",
+      "tags": ["supply", "quote", "price-first", "supplier-a", "cangzhou", "agentlink"],
+      "examples": [
+        "对重型脚轮300kg数量500报价并说明规格",
+        "扶手组件与五星脚组合询价"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.supplier.promotions",
+      "name": "获取产品优惠政策",
+      "description": "返回并结算本厂公开促销：脚轮RM-CASTER-300/200单品满500件该单品总价九折。不提供私下底价。",
+      "version": "1.0.0",
+      "tags": ["supply", "promotion", "supplier-a", "agentlink"],
+      "examples": [
+        "脚轮满500有什么折扣",
+        "本单是否已达九折门槛"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.supplier.inventory-leadtime",
+      "name": "是否有货与交期答复",
+      "description": "答复指定SKU是否有货及交期，不泄露成本结构或其他客户订单。",
+      "version": "1.0.0",
+      "tags": ["supply", "inventory", "leadtime", "supplier-a", "agentlink"],
+      "examples": [
+        "重型脚轮当前可售是否满足500件，交期几天"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.supplier.negotiate",
+      "name": "议价沟通",
+      "description": "就数量、交期、促销达标进行议价沟通，金额仍以目录价与公开促销为准。",
+      "version": "1.0.0",
+      "tags": ["supply", "negotiate", "supplier-a", "agentlink"],
+      "examples": [
+        "采购希望凑满脚轮九折门槛，请回复可执行方案"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.supplier.freight-inquire",
+      "name": "向物流侧询运",
+      "description": "按采购收货地被动向物流智能体询运，回传运费与时效以支撑含运报价。发货地沧州。",
+      "version": "1.0.0",
+      "tags": ["supply", "freight", "logistics", "supplier-a", "agentlink"],
+      "examples": [
+        "沧州发保定、重量200kg，经济拼车运费多少"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.supplier.fulfillment",
+      "name": "发货地供货协同",
+      "description": "基于沧州发货地协同供货信息（数量、交期、线路），不承诺平台外真实结算履约。",
+      "version": "1.0.0",
+      "tags": ["supply", "fulfillment", "supplier-a", "cangzhou", "agentlink"],
+      "examples": [
+        "确认沧州至保定脚轮供货批次与交期"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    }
+  ],
+  "visibility": "public",
+  "certificate": {
+    "altNames": {
+      "ip": ["39.105.20.113"]
+    },
+    "requestedValidity": 825
+  }
+}

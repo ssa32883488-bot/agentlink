@@ -1,0 +1,11 @@
+domain_id: supplier-c
+domain_title: 供应商C · 供应控制台
+ui_port: 8094
+agents:
+  - id: supplier-c
+    title: 供应商C
+    role: partner
+    api_base: https://127.0.0.1:8014
+    rpc_hint: 紧缺与替代 · 对话协同
+    blurb: 独立库 data/supplier-c.sqlite3
+    workspace: chat

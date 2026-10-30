@@ -1,0 +1,11 @@
+domain_id: logistics
+domain_title: 物流 · 控制台（本地）
+ui_port: 8095
+agents:
+  - id: logistics
+    title: 物流
+    role: partner
+    api_base: http://127.0.0.1:8015
+    rpc_hint: Partner HTTP API
+    blurb: 本地 HTTP · 运力方案
+    workspace: chat

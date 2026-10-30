@@ -1,0 +1,39 @@
+{
+  "ok": false,
+  "auction": {
+    "case_id": "case-f740dd32",
+    "transport": "rpc",
+    "priced": 2,
+    "schemes": 0,
+    "best": null,
+    "fallback": true,
+    "abort": "insufficient_joined_suppliers",
+    "bids": [
+      {
+        "id": "supplier-a",
+        "unit": 15.0,
+        "tco": null
+      },
+      {
+        "id": "supplier-c",
+        "unit": 15.0,
+        "tco": null
+      }
+    ]
+  },
+  "done": {
+    "case_id": "case-f740dd32",
+    "ticket": "tk-ord-ase-f740dd32-supplier-a-M-CASTER-200",
+    "supplier": "supplier-a",
+    "goods": 6750.0,
+    "transport": "rpc"
+  },
+  "shots": [
+    "01_buyer_tickets.png",
+    "02_buyer_chat.png",
+    "03_buyer_audit.png",
+    "04_sa_tickets.png",
+    "05_sc_tickets.png",
+    "06_logistics.png"
+  ]
+}

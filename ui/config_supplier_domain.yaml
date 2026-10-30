@@ -1,0 +1,23 @@
+# 供应商无对外门户，本 UI 仅为内部管理界面
+domain_id: supplier-domain
+domain_title: 供应商管理后台（内部）
+ui_port: 8091
+agents:
+  - id: supplier-a
+    title: 供应商A
+    role: partner
+    api_base: https://127.0.0.1:8011
+    rpc_hint: https://127.0.0.1:8011/rpc
+    blurb: 库存价目 · 询价箱
+  - id: supplier-b
+    title: 供应商B
+    role: partner
+    api_base: https://127.0.0.1:8013
+    rpc_hint: https://127.0.0.1:8013/rpc
+    blurb: 面料定制 / MOQ
+  - id: supplier-c
+    title: 供应商C
+    role: partner
+    api_base: https://127.0.0.1:8014
+    rpc_hint: https://127.0.0.1:8014/rpc
+    blurb: 紧缺与替代

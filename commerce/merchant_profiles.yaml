@@ -1,0 +1,115 @@
+# 采购 / 供应 / 物流商家信息（座椅加工场景 · 对齐《6agent的技术设计》）
+# 运费距离以 lanes 为准（公里）
+
+postal_to_city:
+  "071000": 保定
+  "067000": 承德
+  "061000": 沧州
+  "054000": 邢台
+  "030000": 太原
+
+# 发货地 → 收货地 → 公路里程(km)，对齐演示拓扑图
+lanes:
+  沧州:
+    保定: 150
+    承德: 400
+  邢台:
+    保定: 250
+    承德: 630
+  太原:
+    保定: 350
+    承德: 700
+
+agents:
+  buyer-a:
+    role: buyer
+    agent_title: 采购商A
+    email: buyer-a@baoding-seat.agentlink.local
+    trade_name: 保定家具厂
+    organization: 保定家具厂
+    province: 河北
+    city: 保定
+    postal_code: "071000"
+    address: 河北省保定市竞秀区朝阳大街168号
+    contact_name: 采购部
+    contact_phone: "0312-0001001"
+    ship_to_city: 保定
+    notes: 高档座椅产线·收货地保定
+
+  buyer-b:
+    role: buyer
+    agent_title: 采购商B
+    email: buyer-b@chengde-office.agentlink.local
+    trade_name: 承德办公家具制造厂
+    organization: 承德办公家具制造厂
+    province: 河北
+    city: 承德
+    postal_code: "067000"
+    address: 河北省承德市双桥区武烈路88号
+    contact_name: 采购部
+    contact_phone: "0314-0002002"
+    ship_to_city: 承德
+    notes: 平价办公/家用座椅·收货地承德
+
+  supplier-a:
+    role: supplier
+    agent_title: 供应商A
+    email: supplier-a@cangzhou-parts.agentlink.local
+    trade_name: 沧州组件厂
+    organization: 沧州组件厂
+    province: 河北
+    city: 沧州
+    postal_code: "061000"
+    address: 河北省沧州市运河区渤海路56号
+    contact_name: 销售部
+    contact_phone: "0317-0003003"
+    ship_from_city: 沧州
+    strategy_tag: price-first
+    notes: 五金结构件·脚轮满500九折
+
+  supplier-b:
+    role: supplier
+    agent_title: 供应商B
+    email: supplier-b@xingtai-soft.agentlink.local
+    trade_name: 邢台软装厂
+    organization: 邢台软装厂
+    province: 河北
+    city: 邢台
+    postal_code: "054000"
+    address: 河北省邢台市襄都区中兴路120号
+    contact_name: 销售部
+    contact_phone: "0319-0004004"
+    ship_from_city: 邢台
+    strategy_tag: custom-moq
+    notes: 面料海绵·货价满1万减1000
+
+  supplier-c:
+    role: supplier
+    agent_title: 供应商C
+    email: supplier-c@taiyuan-parts.agentlink.local
+    trade_name: 太原组件厂
+    organization: 太原组件厂
+    province: 山西
+    city: 太原
+    postal_code: "030000"
+    address: 山西省太原市小店区长治路66号
+    contact_name: 销售部
+    contact_phone: "0351-0005005"
+    ship_from_city: 太原
+    strategy_tag: scarce-substitute
+    notes: 椅架/结构件·满500打8.5折+跨省运费补贴一半
+
+  logistics:
+    role: logistics
+    agent_title: 物流
+    email: logistics@cailian-ship.agentlink.local
+    trade_name: 采联智运物流
+    organization: 采联智运
+    province: 全国
+    city: 各城市
+    postal_code: ""
+    address: 各城市均设分公司，可从任意发货地揽收
+    contact_name: 运力调度
+    contact_phone: "400-800-8015"
+    ship_from_city: 任意
+    notes: 计费重=实重与体积重取大；服务档×路线系数

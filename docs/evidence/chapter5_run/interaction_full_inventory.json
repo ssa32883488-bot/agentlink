@@ -1,0 +1,219 @@
+{
+  "generated_at": "2026-10-30T22:40+08:00",
+  "remote_amp": {
+    "access": {
+      "n": 198,
+      "http_ok": 197,
+      "http_ok_rate_pct": 99.49,
+      "unique_correlations": 175,
+      "days": {
+        "2026-10-25": 4,
+        "2026-10-30": 194
+      },
+      "status": [
+        [
+          "200",
+          197
+        ],
+        [
+          "500",
+          1
+        ]
+      ],
+      "hosts_top": [
+        [
+          "39.105.20.113:8011",
+          67
+        ],
+        [
+          "39.105.20.113:8014",
+          54
+        ],
+        [
+          "39.105.20.113:8013",
+          31
+        ],
+        [
+          "unknown",
+          23
+        ],
+        [
+          "127.0.0.1:8015",
+          23
+        ]
+      ]
+    },
+    "message": {
+      "n": 198,
+      "delivered_ok": 198,
+      "delivered_ok_rate_pct": 100.0,
+      "unique_correlations": 175,
+      "days": {
+        "2026-10-25": 4,
+        "2026-10-30": 194
+      },
+      "operations": [
+        [
+          "aip.TaskCommand",
+          198
+        ]
+      ],
+      "event_types": [
+        [
+          "send",
+          175
+        ],
+        [
+          "receive",
+          23
+        ]
+      ],
+      "destinations_top": [
+        [
+          "https://39.105.20.113:8011/rpc",
+          67
+        ],
+        [
+          "https://39.105.20.113:8014/rpc",
+          54
+        ],
+        [
+          "https://39.105.20.113:8013/rpc",
+          31
+        ],
+        [
+          "https://127.0.0.1:8015/rpc",
+          23
+        ],
+        [
+          "aip-rpc/L6BJ.MWEDJS.0GUC",
+          18
+        ],
+        [
+          "aip-rpc/uyer-a-local-aic",
+          5
+        ]
+      ]
+    }
+  },
+  "metrics_snapshot": {
+    "access_count": 155,
+    "message_count": 134,
+    "unique_task_ids": 151,
+    "unique_message_ids": 131,
+    "success_rate": 0.9097,
+    "status_breakdown": {
+      "awaiting-completion": 20,
+      "awaiting-input": 1,
+      "200": 120,
+      "500": 14
+    },
+    "access_trend_14d": [
+      {
+        "date": "2026-10-25",
+        "access": 27
+      },
+      {
+        "date": "2026-10-26",
+        "access": 43
+      },
+      {
+        "date": "2026-10-27",
+        "access": 44
+      },
+      {
+        "date": "2026-10-28",
+        "access": 32
+      },
+      {
+        "date": "2026-10-29",
+        "access": 9
+      }
+    ],
+    "kpi": {
+      "access": 155,
+      "messages": 134,
+      "tasks": 151,
+      "success_rate_pct": 91.0
+    }
+  },
+  "report_metrics": {
+    "observation_window": "2026-10-25 ~ 2026-10-30",
+    "amp_access_continuous_window": 155,
+    "amp_message_continuous_window": 134,
+    "amp_tasks_continuous_window": 151,
+    "amp_access_remote_full": 198,
+    "amp_message_remote_full": 198,
+    "amp_access_oct30": 194,
+    "amp_message_oct30": 194,
+    "amp_access_combined": 349,
+    "amp_message_combined": 328,
+    "amp_http_success_rate_pct": 99.49,
+    "amp_message_delivery_rate_pct": 100.0,
+    "protocol_task_success_rate_pct": 91.0,
+    "business_quote_accuracy_pct": 95.2,
+    "platform_adp_hit_accuracy_pct": 93.8,
+    "unique_correlations_remote": 175,
+    "avg_auction_wall_ms": 7633,
+    "avg_rpc_parallel_ms": 311,
+    "avg_discover_platform_s": 12.0,
+    "avg_rfq_s": 5.2,
+    "auction_before_s": "30–120+",
+    "auction_after_s": 7.6,
+    "latency_speedup_auction": "约 4–15×",
+    "latency_improve_auction_pct_floor": 75,
+    "ui_evidence_sessions": 16,
+    "ui_evidence_screenshots": 198,
+    "access_trend_14d": [
+      {
+        "date": "2026-10-25",
+        "access": 27
+      },
+      {
+        "date": "2026-10-26",
+        "access": 43
+      },
+      {
+        "date": "2026-10-27",
+        "access": 44
+      },
+      {
+        "date": "2026-10-28",
+        "access": 32
+      },
+      {
+        "date": "2026-10-29",
+        "access": 9
+      }
+    ],
+    "status_breakdown": {
+      "awaiting-completion": 20,
+      "awaiting-input": 1,
+      "200": 120,
+      "500": 14
+    }
+  },
+  "ui_shot_sessions": [
+    "20261030_073856",
+    "20261030_074027",
+    "20261030_074211",
+    "_build_report",
+    "auction_20261030_080712",
+    "auction_fix_20261030_075853",
+    "auction_group_20261030_081006",
+    "chat_dual_20261030_110903",
+    "dual_20261030_085114",
+    "final_20261030_083629",
+    "group_ok_20261030_081823",
+    "group_ok_20261030_082129",
+    "group_ok_20261030_082512",
+    "group_plane_20261030_083945",
+    "v2_dual_20261030_194839",
+    "v2_dual_20261030_194944"
+  ],
+  "sources": {
+    "remote_amp": "docs/evidence/chapter5_run/remote_amp_20261030",
+    "metrics_snapshot": "docs/evidence/chapter5_run/metrics_snapshot.json",
+    "latency_opt": "docs/evidence/latency_opt/BEFORE_AFTER.md"
+  }
+}

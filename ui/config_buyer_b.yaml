@@ -1,0 +1,11 @@
+domain_id: buyer-b
+domain_title: 采购商B · 采联控制台
+ui_port: 8092
+agents:
+  - id: buyer-b
+    title: 采购商B
+    role: buyer
+    api_base: https://127.0.0.1:8012
+    rpc_hint: Leader · 与A同构，数据独立
+    blurb: 独立库 data/buyer-b.sqlite3
+    workspace: chat

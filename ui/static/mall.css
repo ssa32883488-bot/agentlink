@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+:root {
+  --bg: #f4f6f8;
+  --card: #fff;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --accent: #0369a1;
+  --price: #c2410c;
+  --font: 'Noto Sans SC', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--bg); color: var(--ink); min-height: 100vh; }
+.bar {
+  background: linear-gradient(135deg, #0f172a, #1e3a5f);
+  color: #fff; padding: 1.75rem 1.5rem 1.4rem;
+}
+.brand { font-size: 1.5rem; font-weight: 900; letter-spacing: .02em; }
+.sub { opacity: .8; font-size: .9rem; margin-top: .35rem; }
+main { max-width: 960px; margin: 0 auto; padding: 1.25rem 1.25rem 2.5rem; }
+.tip { color: var(--muted); font-size: .85rem; margin-bottom: 1rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.card {
+  background: var(--card); border-radius: 14px; padding: 1.25rem;
+  box-shadow: 0 1px 2px rgba(15,23,42,.06), 0 8px 24px rgba(15,23,42,.04);
+  border: 1px solid #e2e8f0;
+}
+.card h3 { font-size: 1.15rem; margin-bottom: .4rem; }
+.card .desc { color: var(--muted); font-size: .88rem; line-height: 1.55; min-height: 2.6em; }
+.price { color: var(--price); font-size: 1.35rem; font-weight: 800; margin: .75rem 0; }
+label { font-size: .85rem; color: var(--muted); }
+input[type=number] {
+  width: 88px; margin-left: .35rem; padding: .4rem .5rem; border: 1px solid #cbd5e1;
+  border-radius: 8px; font: inherit;
+}
+button.buy {
+  margin-top: .9rem; width: 100%; border: 0; border-radius: 10px; padding: .7rem;
+  background: var(--accent); color: #fff; font-weight: 700; font-size: .95rem; cursor: pointer;
+}
+button.buy:hover { filter: brightness(1.05); }
+button.buy:disabled { opacity: .55; cursor: not-allowed; }
+.err { color: #b91c1c; margin-top: 1rem; }

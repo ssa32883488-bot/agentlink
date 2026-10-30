@@ -1,0 +1,246 @@
+FILE 第三四章_智能体互联技术选型与项目实施_commerce_v2.docx
+paras=152 tables=16 images=0
+---PARAS---
+0|Normal|AIC·智能体互联技术报告
+1|Normal|第三、四章（commerce_v2 现行实现）
+2|Normal|基线：AGENTLINK_RUNTIME=v2 · 双云采销协同\n对应大纲：附件2
+4|Heading 1|三、智能体互联技术选型与方案设计
+5|Normal|依据《附件2 AIC·智能体互联技术报告参考大纲》撰写。
+6|Normal|技术基线以本仓库 **commerce_v2（`AGENTLINK_RUNTIME=v2`）** 现行实现为准，不以历史 Wit/旧 flow 业务楼为准。
+7|Normal|配套现状说明：`docs/commerce_v2_asbuilt.md`；交互契约：`commerce_v2/interaction_contract.md`。
+8|Heading 2|1. 基础开发资源选型
+9|Heading 3|1.1 配套教程与平台环境
+10|Normal|本作品互联能力建立在国家 AIP 智能体互联标准对应的开源实现与梧桐智能体科研平台通道之上，遵循「协议平面不改国标骨架、业务平面自主编排」的改造原则。
+12|Normal|遵循思路：AIC（身份）→ ACS（描述）→ ADP（发现）→ AIP/Group（交互）→ AMP（访问）五类能力一一映射工程模块；业务字段进入 structured 扩展位，不改 Task 骨架。发现失败可标注降级来源，禁止把本地黄页伪装成 `platform_adp`。
+13|Heading 3|1.2 开发软硬件与运行时选型
+15|Normal|模型边界（硬约束）：LLM 只做「理解与改写」；短名单确认、是否组群、买法决断、`place_order=on`、工单 ack 等必须经人断点或 Gate 写库。
+16|Heading 3|1.3 对 AIP 国标的工程映射
+18|Heading 2|2. 核心技术方案设计
+19|Heading 3|2.1 整体架构：五层多智能体分层互联
+20|Normal|┌─────────────────────────────────────────────────────────┐\n│ 人机交互层：六体控制台 · AskUser 断点 · Gate 工单确认 · 组群聊天室 │\n├─────────────────────────────────────────────────────────┤\n│ 智能体运行时层：buyer-a/b · supplier-a/b/c · logistics          │\n│   （采购：commerce_v2 编排；供应/物流：Partner 信封智力）          │\n├─────────────────────────────────────────────────────────┤\n│ 业务编排层：普通十点路径 · 组群主持竞价 · 多品 items · 共享订单标识   │\n├─────────────────────────────────────────────────────────┤\n│ 协议适配层（保留 ACPs 核心）：AIC/ACS/ADP/AIP/AMP · mTLS · Group MQ │\n├─────────────────────────────────────────────────────────┤\n│ 双云部署层：腾讯云 8010/8012/8015 · 阿里云 8011/8013/8014           │\n└─────────────────────────────────────────────────────────┘\n              ↕ 梧桐 Registry / CA / Discovery / Kafka
+21|Normal|三根产品支柱
+23|Heading 3|2.2 协议复用与自主创新边界
+25|Normal|二次开发表述（对应大纲）：在 AIP/ACPs 开源互联栈与梧桐通道上深度二次开发——不改国标报文骨架，自主完成采销「人在环双路径」编排、采购主持组群竞价、多品全覆盖与跨云部署，使「能发现、能调用、能统计」落地为可演示、可确认的工业采购协同。
+26|Heading 3|2.3 关键技术选型
+27|Heading 3|（1）智能体注册与发现
+28|List Bullet|六体各自 ACS 入驻，平台发证后 AIC=证书 CN 回填运行环境。
+29|List Bullet|采购以**改写后的完整需求句**（可含多品）调用 ADP；`discover_suppliers_for_brief` 对 `brief.items[]` 做 **SKU 并集召回**，避免「脚轮+坐垫」只命中一家品类。
+30|List Bullet|发现结果进入短名单 UI；**断点①**前人不得自动发 RFQ / 自动开群。
+31|Heading 3|（2）跨智能体数据传输
+32|List Bullet|**点对点**：`v2.initial_quote` / `v2.bargain` / `v2.promo_query` / `v2.place_order` / `v2.logistics_quote` 等结构化信封。
+33|List Bullet|**组群**：采购主持 `open_group` → 成员 join → 群内按行 `v2.group_bid`；失败可 `force_local` 续跑，但不得伪称 `transport=group`。
+34|List Bullet|**效力字段**：共享 `order_id` / `logistics_id`；供应工具仅当 `place_order=on` 落单。
+35|Heading 3|（3）协同调度（业务状态机）
+36|List Bullet|**硬编排**：`Phase` 状态机（`SHORTLIST_PENDING` → … → `GROUP_DECIDE` 等）决定合法迁移。
+37|List Bullet|**软入口**：对话只触发已注册路径函数；AskUser 挂起等人；Gate 为工单页写 ack。
+38|List Bullet|**普通路径**：改写 → 发现 → 短名单 → 初报 → 议价 Ask → 买法 → 下单 Gate → 物流。
+39|List Bullet|**组群路径**：冲突建议 →「我要组群竞价」→ 勾选成员 → 主持开群 → 按行报价 → 全量覆盖方案 → 拆单工单。
+40|Heading 3|（4）安全交互与鉴权
+41|List Bullet|默认平台证书 + mTLS；组群邀请跨云自签场景可配置关闭校验（工程开关，材料中如实说明）。
+42|List Bullet|工单确认以 `buyer_ack`/`supplier_ack`/`effective` 为准；物流 Gate 使用 logistics ticket id。
+43|Heading 3|2.4 业务双路径详细设计（现行）
+44|Heading 3|2.4.1 普通采购路径
+45|Normal|用户需求 → LLM 改写(+items[]) → ADP 发现(并集)\n    →【断点①】短名单「确认并询价」\n    → 并行初报 →【断点②】是否探优惠\n    →（可选）议价 →【断点③】怎么买\n    → place_order=on + 共享订单 →【Gate】双边确认\n    → 人放行询运 → 物流方案 →【Gate】物流双边确认
+46|Normal|模块：`buyer_path_normal.py` · `demand_items.py` · `llm_rewrite.py` · `protocol_bridge.py` · `partner_supplier.py`
+47|Heading 3|2.4.2 组群竞价路径
+48|Normal|复杂/冲突建议 → 用户「我要组群竞价」\n    →【断点①】勾选供应±物流 →「确认组群竞价」\n    → 采购主持开群（优先国标 Group MQ）\n    → 按供应目录能力逐行 group_bid → 物流合入\n    →【决断】全量覆盖拆单 / 单家全包\n    → 系列工单 + place_order=on
+49|Normal|模块：`buyer_path_group.py` · `group_room.py` · `group_mq.py` · 前端组群聊天室。
+50|Normal|铁律：主持=采购智能体；开群前必须人确认；汇总须覆盖全部需求行或显式标 missing。
+51|Heading 3|2.4.3 AskUser 与 Gate 分离
+53|Heading 3|2.5 六智能体角色设计（部署视图）
+55|Normal|供应控制台须使用 HTTPS 访问（端口仅挂载 TLS）。
+56|Heading 3|2.6 多品全覆盖设计要点
+57|Normal|工业采购常一次点名多品类。方案层强制：
+58|List Number|`brief.items[]` 为权威行项目；
+59|List Number|防幻觉仅拦截「用户未提脚轮却改写成脚轮」；
+60|List Number|发现按 SKU 并集；
+61|List Number|组群按行出价；汇总主推「全量覆盖」拆单。
+62|Heading 2|3. 方案对大纲硬性目标的覆盖
+64|Normal|（第三章完）
+66|Heading 1|四、智能体互联项目实施
+67|Normal|对应大纲「四、智能体互联项目实施」。
+68|Normal|实施对象：commerce_v2 双路径采销协同（腾讯采购云 × 阿里供应云）。
+69|Normal|验收证据目录示例：`docs/evidence/v2_dual_20261030_194944/`。
+70|Heading 2|1. 项目背景与需求
+71|Heading 3|1.1 业务背景
+72|Normal|智能办公家具场景下，座椅原料（脚轮、面料、坐垫等）需跨企业完成「寻源—议价—下单—物流」闭环。传统方式依赖人工多轮询价；本作品将流程交由多智能体按 AIP 国标互联，并在关键节点保留人确认。
+73|Heading 3|1.2 建设目标（可验收）
+74|List Number|**梧桐全链路**：六体入驻发证、ADP 发现、AIP/组群交互、AMP 访问统计可查。
+75|List Number|**双路径业务**：普通采购询价与采购主持组群竞价均可端到端跑通。
+76|List Number|**人在环效力**：短名单/议价/买法/组群确认用 AskUser；订单与物流用 Gate 工单 ack。
+77|List Number|**多品全覆盖**：一次需求含脚轮+坐垫等时，发现并集、组群按行报价、汇总不漏项。
+78|List Number|**双云真实部署**：腾讯采购侧与阿里供应侧分域运行，控制台 HTTPS 可访问。
+79|Heading 3|1.3 需求边界
+81|Heading 2|2. 整体架构落地
+82|Heading 3|2.1 双云拓扑
+84|Normal|采购作为 Leader 发起发现与组群；供应/物流作为 Partner 收 `/rpc` 并双侧记 AMP。
+85|Heading 3|2.2 运行时开关
+86|Normal|export AGENTLINK_RUNTIME=v2   # 启用 commerce_v2 主路径
+87|Normal|旧 `commerce/_legacy` 仅保留 Group MQ 等协议适配，不再作为业务默认楼。
+88|Heading 3|2.3 模块落位
+90|Heading 2|3. 关键技术实施
+91|Heading 3|3.1 智能体注册与发现
+92|Normal|步骤
+93|List Number|为六体准备 ACS 描述并在梧桐入驻；下载证书，AIC=证书 CN 写入各体环境。
+94|List Number|采购侧配置 Discovery URL（`acps-adp-v2/discover`）。
+95|List Number|用户输入需求 → `llm_rewrite` 产出 `rewritten` + `items[]`。
+96|List Number|`discover_suppliers_for_brief`：对每个 SKU 检索后做供应并集，写入短名单。
+97|List Number|UI 展示候选；用户点「确认并询价」或「我要组群竞价」后方可出网。
+98|Normal|验收点：返回体含 `platform_adp` 或诚实标注降级来源；多品需求下短名单覆盖相关品类供应。
+99|Heading 3|3.2 跨智能体数据传输
+100|Normal|点对点（普通路径）
+102|Normal|组群
+103|List Number|采购主持调用开群（`group_mq`）；成员以证书身份 join。
+104|List Number|群内按目录能力发送 `v2.group_bid`；物流合入运力。
+105|List Number|前端组群聊天室展示过程；结束后可折叠为摘要条。
+106|List Number|`transport=group` 仅在真实国标通道成功时标记。
+107|Normal|共享标识：订单/物流 id 写入双方工单，Gate 双边 ack 后标 `effective`。
+108|Heading 3|3.3 协同调度实施
+109|Normal|普通路径实施顺序（与 UI 断点对齐）
+110|List Number|改写与发现 → 短名单 AskUser
+111|List Number|并行初报 → 是否探优惠 AskUser
+112|List Number|可选议价 → 买法 AskUser
+113|List Number|工具闸 `place_order=on` → 订单 Gate
+114|List Number|人确认后询运 → 物流 Gate
+115|Normal|组群路径实施顺序
+116|List Number|冲突/复杂建议 →「我要组群竞价」
+117|List Number|勾选供应±物流 →「确认组群竞价」
+118|List Number|开群与按行出价 → 全量覆盖方案决断
+119|List Number|拆单工单系列确认
+120|Normal|调度原则：Phase 非法迁移拒绝；对话不直接写效力字段。
+121|Heading 3|3.4 安全交互与鉴权实施
+122|List Number|生产默认校验证书链；组群跨云自签时使用约定工程开关并在材料中披露。
+123|List Number|Partner 校验来访任务与 AIC 绑定。
+124|List Number|供应侧拒绝无 `place_order=on` 的落单请求。
+125|List Number|控制台：采购/物流可用 HTTP 或 HTTPS；**供应 UI 强制 HTTPS**，避免浏览器「网络错误」。
+126|Heading 3|3.5 人机与工单实施
+128|Heading 2|4. 实施过程与里程碑
+130|Normal|实施中关键修复（记入过程）
+131|List Bullet|组群 SSL 邀请在自签环境可配置信任策略。
+132|List Bullet|多品改写防幻觉与发现并集，避免坐垫漏项。
+133|List Bullet|组群聊天室可收起，避免占满对话区。
+134|List Bullet|供应控制台改 HTTPS 消除跨站/混合内容类网络错误。
+135|Heading 2|5. 测试与验证
+136|Heading 3|5.1 功能验证清单
+138|Heading 3|5.2 证据包建议结构
+139|Normal|docs/evidence/<batch_id>/\n  screenshots/     # 双路径关键帧\n  logs/            # 编排与 /rpc 摘要\n  README.md        # 步骤说明
+140|Normal|Word 对照材料可由截图脚本批次导出（如 `v2_dual_inquiry_paths_*.docx`）。
+141|Heading 3|5.3 回归与运维脚本
+143|Heading 2|6. 与梧桐平台对接说明（材料表述）
+144|List Number|**注册**：六 ACS 入驻，证书落地，AIC 回填。
+145|List Number|**发现**：采购以改写需求调用平台 Discovery。
+146|List Number|**互联**：HTTPS `/rpc` 承载 AIP Task；组群走平台 MQ 通道。
+147|List Number|**访问**：Leader/Partner 写 Kafka 主题，作品材料附平台访问量截图。
+148|Normal|对接原则：协议平面跟国标与平台；业务平面用 commerce_v2 自研编排——二次开发边界清晰，便于评审查验。
+149|Heading 2|7. 实施总结
+150|Normal|本项目在 AIP/ACPs 与梧桐通道上完成工业采销多智能体互联落地：以 commerce_v2 确定性双路径替代不可控的工具乱序调用；以 AskUser/Gate 保证人在环效力；以多品并集与组群按行出价保证复杂需求可覆盖；以双云六体证明跨企业可部署。后续可在不改国标骨架前提下扩展更多品类 ACS、加强组群失败自动恢复策略，以及把访问统计看板嵌入控制台。
+151|Normal|（第四章完）
+---TABLES---
+TABLE 0 rows=7 cols=3
+  R0: 资源 | 选型 | 用途
+  R1: 开源协议栈 | AIP-PUB / ACPs（`acps-sdk`） | AIC/ACS/ADP/AIP/AMP；Partner `/rpc`；组群 MQ
+  R2: 科研平台 | 梧桐（`wt.ioa.pub`） | Registry/CA、Discovery、访问统计
+  R3: 发现 | ADP `…/acps-adp-v2/discover` | 按改写后需求检索可协作智能体
+  R4: 交互 | AIP Task + HTTPS `/rpc`；国标 Group MQ | 点对点询价/议价/下单；组群共同上下文
+  R5: 访问 | Kafka `amp.access` / `amp.message` | 双侧访问记账（Leader send / Partner receive）
+  R6: 安全 | 平台证书 + mTLS；组群 AIC=证书 CN | 跨云身份与传输
+TABLE 1 rows=8 cols=3
+  R0: 层次 | 选型 | 理由（相对旧 Wit 主路径的变化）
+  R1: 语言/服务 | Python ≥3.12 + FastAPI + uvicorn | 与 ACPs 生态一致；六体各自暴露 HTTPS API 与 `/rpc`
+  R2: **业务编排** | **`commerce_v2` 确定性路径编排** | 采购对话主路径不再依赖 Wit 工具乱序调用；状态机保证可测、可演示
+  R3: 认知组件 | DeepSeek（OpenAI 兼容）**仅用于需求改写消歧** | 改写进 `llm_rewrite`；效力动作不由模型口头确认
+  R4: Partner 智力 | 供应/物流确定性信封处理（`partner_supplier` / `partner_logistics`） | 目录计价、政策、运力方案可验收；可对接 Java Partner 样例证明异构
+  R5: 主数据 | 每智能体 SQLite 分库 + `data/v2_*` JSON 案/线程/工单 | 禁止跨域直连库；工单确认态以库为准
+  R6: 前端 | 六体独立控制台（静态 HTML/JS + 本域代理） | AskUser 按钮与 Gate 工单页分离；组群置顶聊天室
+  R7: 部署 | 双云 systemd：腾讯采购 A/B+物流；阿里供应 A/B/C | 贴近跨企业拓扑
+TABLE 2 rows=7 cols=2
+  R0: 国标能力 | 工程落点（现行）
+  R1: AIC | 各体 `.env` 中证书 CN；组群 `leader_aic_for`
+  R2: ACS | `acs/*.acs.json` 入驻描述
+  R3: ADP | `protocol_bridge.discover_suppliers` / `discover_suppliers_for_brief`（多 SKU 并集）
+  R4: AIP | `aip_call` → Partner `/rpc`；信封 `schema_type=v2.*`
+  R5: Group | `commerce/_legacy/group_mq.py` 开群邀请；`transport=group` 成功才标国标通道
+  R6: AMP | Leader/Partner 双侧 Access+Message，`messageId=msg-{taskId}`
+TABLE 3 rows=4 cols=2
+  R0: 支柱 | 方案体现
+  R1: 多智能体互联 | ADP 发现 → AIP 并行询价 / 国标组群出价 → 共享订单确认
+  R2: 人在断点 | 短名单、议价、买法、是否组群、方案采纳、工单 ack
+  R3: 全员够智力 | 供应答规格/价/政策；物流给运力方案；采购能改写与主持
+TABLE 4 rows=5 cols=3
+  R0: 类别 | 内容 | 是否改国标结构
+  R1: **复用** | `acps-sdk` Task/RPC、Discovery、证书、Kafka AMP、Group 邀请协议 | 否
+  R2: **适配** | payload 封装、mTLS、`AIP_SSL_INSECURE` 自签邀请、live AIC 绑定、发现缓存 | 否（工程封装）
+  R3: **创新（commerce_v2）** | 确定性双路径编排、AskUser/Gate 分离、多品 `items[]` 全覆盖、组群聊天室与按行出价、`place_order=on` 工具闸 | 否（业务层）
+  R4: **禁止** | 伪造 platform_adp；未确认即 RFQ/开群；对话声称已生效而 `ack=false` | —
+TABLE 5 rows=3 cols=3
+  R0: 机制 | 入口 | 作用
+  R1: AskUser | `choice_actions` / `shortlist_confirm` | 选题推进阶段
+  R2: Gate | 工单 `ack-order` / `ack-logistics` | 写确认态产生效力
+TABLE 6 rows=7 cols=5
+  R0: 智能体 | 云 | API | UI | 职责摘要
+  R1: buyer-a | 腾讯 | 8010 | 8090 | Leader；普通/组群编排；组群主持
+  R2: buyer-b | 腾讯 | 8012 | 8092 | 同契约第二采购租户
+  R3: logistics | 腾讯 | 8015 | 8095 | 运力方案与物流工单
+  R4: supplier-a | 阿里 | 8011 | 8091 HTTPS | 脚轮等结构件；满减政策
+  R5: supplier-b | 阿里 | 8013 | 8093 HTTPS | 面料/坐垫；MOQ/满减
+  R6: supplier-c | 阿里 | 8014 | 8094 HTTPS | 脚轮+坐垫；紧缺/替代
+TABLE 7 rows=5 cols=2
+  R0: 硬性目标 | 方案落点
+  R1: 接入梧桐：注册→发现→互联→访问 | ACS/AIC + ADP + AIP/Group + AMP
+  R2: 自动发现与跨端访问 | `platform_adp` 优先；跨云 `/rpc`
+  R3: 业务场景 | 座椅原料采购：普通询价 + 组群竞价
+  R4: 可验证 | 双云 systemd；UI 双路径截图与日志；访问量后台截图（材料硬门槛）
+TABLE 8 rows=5 cols=2
+  R0: 纳入 | 不纳入（本期）
+  R1: 结构化询价/议价/下单/物流信封 | 真实支付与仓储 WMS
+  R2: 国标组群优先 + 可声明的本地降级 | 改写 Wit 旧主路径作为默认演示
+  R3: LLM 需求改写 | 模型口头下单生效
+  R4: 六体独立库与工单 | 跨域直连对方数据库
+TABLE 9 rows=3 cols=4
+  R0: 区域 | 智能体 | API | UI
+  R1: 腾讯云 | buyer-a / buyer-b / logistics | 8010 / 8012 / 8015 | 8090 / 8092 / 8095
+  R2: 阿里云 | supplier-a / b / c | 8011 / 8013 / 8014 | 8091 / 8093 / 8094（HTTPS）
+TABLE 10 rows=10 cols=2
+  R0: 目录/文件 | 实施职责
+  R1: `commerce_v2/buyer_path_normal.py` | 普通十点路径
+  R2: `commerce_v2/buyer_path_group.py` | 组群主持与竞价汇总
+  R3: `commerce_v2/demand_items.py` | 多品解析与防幻觉
+  R4: `commerce_v2/llm_rewrite.py` | DeepSeek 改写
+  R5: `commerce_v2/protocol_bridge.py` | ADP / AIP / AMP 桥
+  R6: `commerce_v2/group_room.py` | 组群会话与前端聊天室数据
+  R7: `commerce_v2/partner_*.py` | 供应/物流 Partner 智力
+  R8: `commerce_v2/interaction_contract.md` | AskUser / Gate 契约
+  R9: `ui/static/*` | 短名单、组群室、工单 Gate
+TABLE 11 rows=5 cols=3
+  R0: 信封 schema | 方向 | 作用
+  R1: `v2.initial_quote` | 采→供 | 初报
+  R2: `v2.bargain` / `v2.promo_query` | 采→供 | 议价/优惠
+  R3: `v2.place_order`（`place_order=on`） | 采→供 | 落单
+  R4: `v2.logistics_quote` 等 | 采→物 | 运力方案
+TABLE 12 rows=5 cols=2
+  R0: 能力 | 实现要点
+  R1: AskUser | `choice_actions` 渲染为按钮；短名单确认组件
+  R2: Gate | `/tickets` 列表；`ack-order` / `ack-logistics`
+  R3: 组群室 | 置顶可折叠；按消息流展示出价
+  R4: 清理 | `scripts/_clear_history_and_tickets.py` 演示前清场
+TABLE 13 rows=6 cols=3
+  R0: 阶段 | 工作内容 | 结果
+  R1: M1 协议底座 | ACS/AIC、ADP、AIP、AMP、双云 systemd | 六体可发现可调用
+  R2: M2 commerce_v2 骨架 | 切运行时、确定性 Phase、AskUser/Gate | 普通路径可演示
+  R3: M3 组群竞价 | 主持开群、按行 bid、聊天室、全覆盖汇总 | 组群路径可演示
+  R4: M4 多品与体验 | items 并集发现、组群折叠、供应 HTTPS | 脚轮+坐垫不漏项
+  R5: M5 材料固化 | 双路径截图+日志、asbuilt、本章文档 | 参赛/软著材料就绪
+TABLE 14 rows=7 cols=5
+  R0: 编号 | 场景 | 通过标准 |  | 
+  R1: T1 | 普通询价（单品或清晰短名单） | 初报→议价可选→下单 Gate→物流 |  | 
+  R2: T2 | 组群竞价（脚轮+坐垫等多品） | 开群成功或诚实降级；汇总覆盖全部行 |  | 
+  R3: T3 | 发现真实性 | 非伪造 platform_adp |  | 
+  R4: T4 | 工具闸 | 无 place_order=on 不落单 |  | 
+  R5: T5 | 访问统计 | 梧桐后台可见双侧调用增量 |  | 
+  R6: T6 | 供应 UI | `https://<host>:8091 | 8093 | 8094` 可开
+TABLE 15 rows=5 cols=2
+  R0: 脚本 | 用途
+  R1: `scripts/_check_services.py` | 端口与健康
+  R2: `scripts/_capture_v2_dual_inquiry_shots.py` | 双路径截图
+  R3: `scripts/_clear_history_and_tickets.py` | 清历史与工单
+  R4: `scripts/_fix_supplier_uis.py` | 供应 UI HTTPS 排查辅助

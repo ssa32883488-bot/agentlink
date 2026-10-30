@@ -1,0 +1,17 @@
+server:
+  port: ${PORT:8013}
+  ssl:
+    enabled: ${SSL_ENABLED:false}
+    certificate: ${SSL_CERT:}
+    certificate-private-key: ${SSL_KEY:}
+agentlink:
+  agent-id: supplier-b
+  aic: ${SUPPLIER_B_AIC:supplier-b-local-aic}
+  policy-resource: policy.yaml
+  erp-upstream: ${ERP_UPSTREAM:http://127.0.0.1:18013}
+spring:
+  application:
+    name: supplier-b-java
+logging:
+  level:
+    com.agentlink: INFO

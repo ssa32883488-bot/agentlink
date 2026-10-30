@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "rTc1gS0I+1Q=",
+  "success": true,
+  "projectFilePath": "F:\\code\\智能体协议\\项目开发\\agentlink\\scripts\\_e2e_docx_builder\\E2eDocxBuilder.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\32081\\.nuget\\packages\\documentformat.openxml\\3.2.0\\documentformat.openxml.3.2.0.nupkg.sha512",
+    "C:\\Users\\32081\\.nuget\\packages\\documentformat.openxml.framework\\3.2.0\\documentformat.openxml.framework.3.2.0.nupkg.sha512",
+    "C:\\Users\\32081\\.nuget\\packages\\system.io.packaging\\8.0.1\\system.io.packaging.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

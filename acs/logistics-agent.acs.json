@@ -1,0 +1,127 @@
+{
+  "aic": "1.2.156.3088.1.BUPT.2HY2P9.JOBNF9.39B1TM.0ALR",
+  "active": true,
+  "lastModifiedTime": "2026-10-28T08:06:00+08:00",
+  "protocolVersion": "02.02",
+  "name": "采联物流智能体",
+  "description": "全国连锁运力智能体「采联智运」，各城市均设分公司，可从任意发货地揽收。接收采购或供应侧的结构化运力需求，按计费规则与服务档给出可复现的运输方案（费用、时效、路线系数）。主营B2B零部件调拨：极速达（1-2天）、标准快线（3-4天）、经济拼车（5-7天）。计费重取实重与体积重较大者；抛货1m³=200kg。路线系数：≤300km×1.0、≤800km×1.2、更远×1.5。默认输出经济档单方案。拒绝：缺少起讫地/重量体积等关键字段且无法澄清时直接报价、介入采购议价原文、代替采购选定供应商。",
+  "version": "1.0.0",
+  "provider": {
+    "countryCode": "CN",
+    "organization": "后浪队",
+    "department": "AgentLink",
+    "url": "https://ashui.online:8015",
+    "license": "腾讯云端点 HTTPS+Let's Encrypt(ashui.online)；阿里云端点 HTTPS 公网IP。审核通过后使用平台 CA mTLS",
+    "name": "李佳铖",
+    "email": "3572962849@qq.com",
+    "domainRegistrations": [
+      {
+        "domain": "ashui.online",
+        "registrationNumber": "NONE",
+        "registrationType": "WHOIS"
+      }
+    ]
+  },
+  "securitySchemes": {
+    "mtls": {
+      "type": "mutualTLS",
+      "description": "智能体间 mTLS 双向认证"
+    }
+  },
+  "endPoints": [
+    {
+      "url": "https://ashui.online:8015/rpc",
+      "transport": "JSONRPC",
+      "security": [
+        {
+          "mtls": []
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "notification": false,
+    "messageQueue": []
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "agentlink.logistics.normalize-request",
+      "name": "运力需求归一与询价",
+      "description": "将多样结构化运力输入归一为规范询运单；缺起讫地、重量/体积等关键字段时澄清后再报价。",
+      "version": "1.0.0",
+      "tags": ["logistics", "shipping", "normalize", "agentlink"],
+      "examples": [
+        "沧州到保定、200kg、经济拼车请报价",
+        "只有城市没有邮编时先澄清再询价"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.logistics.chargeable-weight",
+      "name": "计费重计算",
+      "description": "按实重与体积重取大计算计费重；抛货（面料/海绵）按1m³=200kg标准。",
+      "version": "1.0.0",
+      "tags": ["logistics", "billing", "weight", "agentlink"],
+      "examples": [
+        "面料0.5方、实重40kg，计费重多少"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.logistics.service-matrix",
+      "name": "三档服务报价",
+      "description": "按极速达/标准快线/经济拼车矩阵给出时效与起步续费；默认推荐经济拼车单方案以减流程。",
+      "version": "1.0.0",
+      "tags": ["logistics", "service-tier", "economy", "agentlink"],
+      "examples": [
+        "太原到承德椅架，只要最经济一档报价"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.logistics.route-factor",
+      "name": "路线距离系数计价",
+      "description": "按发到距离套用路线系数：≤300km×1.0、≤800km×1.2、更远×1.5，输出可复现运费。",
+      "version": "1.0.0",
+      "tags": ["logistics", "route", "pricing", "agentlink"],
+      "examples": [
+        "沧州→保定约150km，系数与运费",
+        "太原→承德约700km，系数与运费"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.logistics.shipping-quote",
+      "name": "协议化运费回执",
+      "description": "向采购/供应智能体返回结构化运费回执（费用、时效、服务档、计费重），不介入买卖谈判。",
+      "version": "1.0.0",
+      "tags": ["logistics", "shipping-quote", "aip", "agentlink"],
+      "examples": [
+        "返回economy档shipping_cost与eta_days"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    }
+  ],
+  "visibility": "public",
+  "certificate": {
+    "altNames": {
+      "dns": ["ashui.online", "www.ashui.online"],
+      "ip": ["81.70.46.119"]
+    },
+    "requestedValidity": 825
+  }
+}

@@ -1,0 +1,378 @@
+{
+  "run_id": "20261030_074027",
+  "reports": [
+    {
+      "title": "普通采购（发现→短名单→RFQ→下单→物流→激活）",
+      "ok": false,
+      "issues": [
+        "询价无报价: {}",
+        "未生成订单工单: {}"
+      ],
+      "discover": {
+        "case_id": "case-868f0be5",
+        "state": "SHORTLIST_PENDING",
+        "n": 3,
+        "ids": [
+          "supplier-a",
+          "supplier-b",
+          "supplier-c"
+        ],
+        "source": "platform_adp"
+      },
+      "shortlist": null,
+      "rfq": null,
+      "order": null,
+      "ship": null,
+      "order_done": null,
+      "sup": {
+        "acked": [],
+        "logs": []
+      },
+      "finish": {
+        "activated": []
+      }
+    },
+    {
+      "title": "组群竞价（发现→RFQ→auction→TCO下单→物流→激活）",
+      "ok": false,
+      "issues": [
+        "transport 非 group: rpc"
+      ],
+      "discover": {
+        "case_id": "case-b2f9ee20",
+        "state": "SHORTLIST_PENDING",
+        "n": 3,
+        "ids": [
+          "supplier-a",
+          "supplier-b",
+          "supplier-c"
+        ]
+      },
+      "rfq": {
+        "case_id": "case-b2f9ee20",
+        "state": "COMPARE_PENDING",
+        "quotes": 2
+      },
+      "auction": {
+        "case_id": "case-b2f9ee20",
+        "state": "BID_REVIEW",
+        "transport": "rpc",
+        "priced": 2,
+        "schemes": 0,
+        "best": null,
+        "bids": [
+          {
+            "id": "supplier-a",
+            "unit": 15.0,
+            "tco": null
+          },
+          {
+            "id": "supplier-b",
+            "unit": null,
+            "tco": null
+          },
+          {
+            "id": "supplier-c",
+            "unit": 15.0,
+            "tco": null
+          }
+        ]
+      },
+      "order": {
+        "case_id": "case-b2f9ee20",
+        "state": "ORDER_DRAFT",
+        "supplier": "supplier-a",
+        "product": "标准脚轮200kg",
+        "qty": 500,
+        "goods": 6750.0,
+        "ship": null,
+        "ticket": "tk-ord-ase-b2f9ee20-supplier-a-M-CASTER-200"
+      },
+      "done": {
+        "case_id": "case-b2f9ee20",
+        "ticket": "tk-ord-ase-b2f9ee20-supplier-a-M-CASTER-200",
+        "priced": 2,
+        "transport": "rpc"
+      },
+      "sup": {
+        "acked": [
+          {
+            "agent": "supplier-a",
+            "tid": "tk-ord-ase-d92099ed-supplier-a-M-CASTER-300",
+            "effective": true,
+            "title": "销售订单 · 重型脚轮300kg × 500 · 买方 buyer-a · 货款 9000.0"
+          },
+          {
+            "agent": "supplier-a",
+            "tid": "tk-ord-ase-b2f9ee20-supplier-a-M-CASTER-200",
+            "effective": true,
+            "title": "销售订单 · 标准脚轮200kg × 500 · 买方 buyer-a · 货款 6750.0"
+          }
+        ],
+        "logs": []
+      },
+      "finish": {
+        "activated": [
+          {
+            "case": "case-b2f9ee20",
+            "state": "ACTIVE",
+            "note": ""
+          },
+          {
+            "case": "case-d92099ed",
+            "state": "ACTIVE",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ],
+  "shots": [
+    {
+      "step": 1,
+      "label": "N00_buyer_home_chat",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "01_N00_buyer_home_chat.png",
+      "error": null
+    },
+    {
+      "step": 2,
+      "label": "N00_buyer_tickets_before",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "02_N00_buyer_tickets_before.png",
+      "error": null
+    },
+    {
+      "step": 3,
+      "label": "N01_after_discover_chat",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "03_N01_after_discover_chat.png",
+      "error": null
+    },
+    {
+      "step": 4,
+      "label": "N01_after_discover_tickets",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "04_N01_after_discover_tickets.png",
+      "error": null
+    },
+    {
+      "step": 5,
+      "label": "N02_chat_status_after_discover",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "05_N02_chat_status_after_discover.png",
+      "chat": "查看当前采购案状态与候选供应商列表，用表格说明。",
+      "error": null
+    },
+    {
+      "step": 6,
+      "label": "N03_after_rfq_chat",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "06_N03_after_rfq_chat.png",
+      "error": null
+    },
+    {
+      "step": 7,
+      "label": "N04_chat_compare_quotes",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "07_N04_chat_compare_quotes.png",
+      "chat": "汇总刚才三家询价结果，比较单价与总价，给出推荐并说明理由。",
+      "error": null
+    },
+    {
+      "step": 8,
+      "label": "N05_sa_tickets_after_rfq",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "08_N05_sa_tickets_after_rfq.png",
+      "error": null
+    },
+    {
+      "step": 9,
+      "label": "N05_sb_tickets_after_rfq",
+      "portal": "supplier-b",
+      "page": "tickets",
+      "file": "09_N05_sb_tickets_after_rfq.png",
+      "error": null
+    },
+    {
+      "step": 10,
+      "label": "N05_sc_tickets_after_rfq",
+      "portal": "supplier-c",
+      "page": "tickets",
+      "file": "10_N05_sc_tickets_after_rfq.png",
+      "error": null
+    },
+    {
+      "step": 11,
+      "label": "N06_buyer_tickets_after_order",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "11_N06_buyer_tickets_after_order.png",
+      "error": null
+    },
+    {
+      "step": 12,
+      "label": "N07_sa_tickets_after_order",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "12_N07_sa_tickets_after_order.png",
+      "error": null
+    },
+    {
+      "step": 13,
+      "label": "N08_chat_order_status",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "13_N08_chat_order_status.png",
+      "chat": "查看当前订单草案与物流缺口，说明下一步需谁确认。",
+      "error": null
+    },
+    {
+      "step": 14,
+      "label": "N09_sa_after_ack",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "14_N09_sa_after_ack.png",
+      "error": null
+    },
+    {
+      "step": 15,
+      "label": "N10_logistics_after_sup_ack",
+      "portal": "logistics",
+      "page": "tickets",
+      "file": "15_N10_logistics_after_sup_ack.png",
+      "error": null
+    },
+    {
+      "step": 16,
+      "label": "N11_buyer_final_tickets",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "16_N11_buyer_final_tickets.png",
+      "error": null
+    },
+    {
+      "step": 17,
+      "label": "N12_buyer_audit",
+      "portal": "buyer-a",
+      "page": "audit",
+      "file": "17_N12_buyer_audit.png",
+      "error": null
+    },
+    {
+      "step": 18,
+      "label": "N13_logistics_final",
+      "portal": "logistics",
+      "page": "tickets",
+      "file": "18_N13_logistics_final.png",
+      "error": null
+    },
+    {
+      "step": 19,
+      "label": "N14_chat_final",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "19_N14_chat_final.png",
+      "chat": "确认普通采购案是否已激活，用一句话结论。",
+      "error": null
+    },
+    {
+      "step": 20,
+      "label": "A00_buyer_before_auction",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "20_A00_buyer_before_auction.png",
+      "error": null
+    },
+    {
+      "step": 21,
+      "label": "A01_buyer_tickets_after_auction",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "21_A01_buyer_tickets_after_auction.png",
+      "error": null
+    },
+    {
+      "step": 22,
+      "label": "A02_chat_auction_summary",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "22_A02_chat_auction_summary.png",
+      "chat": "说明刚才组群竞价的运输方式、有效出价数、最优 TCO 方案与中标供应方。",
+      "error": null
+    },
+    {
+      "step": 23,
+      "label": "A03_sa_tickets",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "23_A03_sa_tickets.png",
+      "error": null
+    },
+    {
+      "step": 24,
+      "label": "A03_sb_tickets",
+      "portal": "supplier-b",
+      "page": "tickets",
+      "file": "24_A03_sb_tickets.png",
+      "error": null
+    },
+    {
+      "step": 25,
+      "label": "A03_sc_tickets",
+      "portal": "supplier-c",
+      "page": "tickets",
+      "file": "25_A03_sc_tickets.png",
+      "error": null
+    },
+    {
+      "step": 26,
+      "label": "A04_sa_after_ack",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "26_A04_sa_after_ack.png",
+      "error": null
+    },
+    {
+      "step": 27,
+      "label": "A05_logistics",
+      "portal": "logistics",
+      "page": "tickets",
+      "file": "27_A05_logistics.png",
+      "error": null
+    },
+    {
+      "step": 28,
+      "label": "A06_buyer_final",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "28_A06_buyer_final.png",
+      "error": null
+    },
+    {
+      "step": 29,
+      "label": "A07_buyer_audit",
+      "portal": "buyer-a",
+      "page": "audit",
+      "file": "29_A07_buyer_audit.png",
+      "error": null
+    },
+    {
+      "step": 30,
+      "label": "A08_chat_final",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "30_A08_chat_final.png",
+      "chat": "确认组群竞价案是否完成激活，一句话结论。",
+      "error": null
+    }
+  ]
+}

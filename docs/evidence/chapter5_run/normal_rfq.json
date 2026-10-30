@@ -1,0 +1,1009 @@
+{
+  "ok": true,
+  "path": "normal_rfq",
+  "case_id": "case-e96ee172",
+  "timeline": [
+    {
+      "step": "create_case",
+      "ok": true,
+      "http_ms": 5393.5,
+      "wall_ms": 5393.6,
+      "at": "2026-10-29T05:51:01.679481+00:00",
+      "error": null,
+      "result_summary": {
+        "state": "DRAFT",
+        "case_id": "case-e96ee172"
+      },
+      "result": {
+        "case_id": "case-e96ee172",
+        "state": "DRAFT",
+        "created_at": "2026-10-29T05:51:03.831787+00:00",
+        "updated_at": "2026-10-29T05:51:03.831802+00:00",
+        "created_by": "buyer-a",
+        "brief": {
+          "product_name": "重型脚轮",
+          "quantity": 500,
+          "specifications": {
+            "rated_load_kg_min": 300
+          },
+          "currency": "CNY",
+          "note": "ch5-normal-rfq",
+          "purchase_request_id": "pr-9b231833",
+          "version": 1,
+          "human_approval_status": "approved",
+          "quality_requirements": [
+            "提供批次质检资料"
+          ],
+          "delivery": {
+            "deadline": "2026-11-15",
+            "destination_ref": "addr-buyer-1"
+          }
+        },
+        "candidates": [],
+        "shortlist": [],
+        "shortlist_confirmed": false,
+        "quotes": [],
+        "comparison": null,
+        "decision": null,
+        "negotiate_goal": null,
+        "negotiate_rounds": [],
+        "auction_bids": [],
+        "selected_supplier": null,
+        "order_draft": null,
+        "shipping_quote": null,
+        "contract": null,
+        "buyer_confirmed": false,
+        "supplier_confirmed": false,
+        "audit": [
+          {
+            "at": "2026-10-29T05:51:03.831809+00:00",
+            "event": "created",
+            "state": "DRAFT"
+          }
+        ],
+        "hitl_pending": null
+      }
+    },
+    {
+      "step": "discover_platform_adp",
+      "ok": true,
+      "http_ms": 13335.2,
+      "wall_ms": 13335.4,
+      "at": "2026-10-29T05:51:15.014924+00:00",
+      "error": null,
+      "result_summary": {
+        "state": "SHORTLIST_PENDING",
+        "case_id": "case-e96ee172",
+        "source": "platform_adp",
+        "degrade": false,
+        "cache_hit": false,
+        "elapsed_ms_platform": 11697,
+        "candidate_count": 3,
+        "candidates": [
+          {
+            "agent_id": "supplier-c",
+            "source": "platform_adp",
+            "name": "采联供应商智能体C"
+          },
+          {
+            "agent_id": "supplier-a",
+            "source": "platform_adp",
+            "name": "采联供应商智能体A"
+          },
+          {
+            "agent_id": "supplier-b",
+            "source": "platform_adp",
+            "name": "采联供应商智能体B"
+          }
+        ]
+      },
+      "result": {
+        "case_id": "case-e96ee172",
+        "state": "SHORTLIST_PENDING",
+        "created_at": "2026-10-29T05:51:03.831787+00:00",
+        "updated_at": "2026-10-29T05:51:16.875405+00:00",
+        "created_by": "buyer-a",
+        "brief": {
+          "product_name": "重型脚轮",
+          "quantity": 500,
+          "specifications": {
+            "rated_load_kg_min": 300
+          },
+          "currency": "CNY",
+          "note": "ch5-normal-rfq",
+          "purchase_request_id": "pr-9b231833",
+          "version": 1,
+          "human_approval_status": "approved",
+          "quality_requirements": [
+            "提供批次质检资料"
+          ],
+          "delivery": {
+            "deadline": "2026-11-15",
+            "destination_ref": "addr-buyer-1"
+          }
+        },
+        "candidates": [
+          {
+            "agent_id": "supplier-c",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.8R39K3.RQIABQ.1ABF",
+            "name": "采联供应商智能体C",
+            "description": "太原结构件与软垫供应智能体，代表太原组件厂（山西省太原市小店区长治路66号，邮编030000）。承接询价报价，并对椅架大批量与跨省运输提供促销与运费补贴政策：RM-TUBE-STEEL满500件打8.5折；跨省运输运费补贴一半。主营：扶手、五星脚、钢管制件椅架、标准脚轮、记忆/普通海绵坐垫。拒绝：私下底价、窥探他方报价、无授权真实结算承诺。",
+            "endpoint": "https://39.105.20.113:8014/rpc",
+            "skills": [
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体C",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.8R39K3.RQIABQ.1ABF",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          },
+          {
+            "agent_id": "supplier-a",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.NH4J42.CV501K.0U11",
+            "name": "采联供应商智能体A",
+            "description": "沧州五金结构件供应智能体，代表沧州组件厂（河北省沧州市运河区渤海路56号，邮编061000）。承接座椅零部件询价与报价，主打价格竞争力与脚轮大批量优惠（RM-CASTER-300/200 单品满500件该单品总价九折），并可应询价方要求向物流侧询运。主营：扶手组件、五星脚底座、气压棒、重型/标准脚轮、钢管制件椅架。挂牌价按目录与公开促销结算，无私下底价通道。拒绝：窥探他方报价、无授权承诺真实发货结算、处理非本厂目录SKU。",
+            "endpoint": "https://39.105.20.113:8011/rpc",
+            "skills": [
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体A",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.NH4J42.CV501K.0U11",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          },
+          {
+            "agent_id": "supplier-b",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.SHDUXP.AKGA0G.0768",
+            "name": "采联供应商智能体B",
+            "description": "邢台软装供应智能体，代表邢台软装厂（河北省邢台市襄都区中兴路120号，邮编054000）。承接座椅面料与海绵的定制化询价报价，强调品质等定制字段与起订量约束（面料MOQ50、海绵MOQ20）；任意软装组合货价满10000减1000。主营：高档/普通座椅面料、记忆/普通海绵坐垫。低于起订量拒报或引导改量。拒绝：无定制要素的无效询价、私下底价、窥探他方报价。",
+            "endpoint": "https://39.105.20.113:8013/rpc",
+            "skills": [
+              "agentlink.supplier.moq-validate",
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体B",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.SHDUXP.AKGA0G.0768",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          }
+        ],
+        "shortlist": [],
+        "shortlist_confirmed": false,
+        "quotes": [],
+        "comparison": null,
+        "decision": null,
+        "negotiate_goal": null,
+        "negotiate_rounds": [],
+        "auction_bids": [],
+        "selected_supplier": null,
+        "order_draft": null,
+        "shipping_quote": null,
+        "contract": null,
+        "buyer_confirmed": false,
+        "supplier_confirmed": false,
+        "audit": [
+          {
+            "at": "2026-10-29T05:51:03.831809+00:00",
+            "event": "created",
+            "state": "DRAFT"
+          },
+          {
+            "at": "2026-10-29T05:51:05.157125+00:00",
+            "event": "discover_start",
+            "state": "DISCOVERING"
+          },
+          {
+            "at": "2026-10-29T05:51:16.875424+00:00",
+            "event": "discover_done",
+            "state": "SHORTLIST_PENDING"
+          }
+        ],
+        "hitl_pending": {
+          "gate": "confirm_shortlist",
+          "prompt": "请确认与哪些供应商发起 AIP 询价（至少选 1 家）",
+          "role": "Leader·采购商A",
+          "phase": "shortlist",
+          "hint": "可确认询价对象、改选，或拒绝本次短名单",
+          "next_hint": "可确认询价对象、改选，或拒绝本次短名单",
+          "decisions": [
+            "approve",
+            "edit",
+            "reject",
+            "respond"
+          ],
+          "options": [
+            "approve",
+            "edit",
+            "reject"
+          ],
+          "status": "awaiting",
+          "source_label": "platform_adp",
+          "degrade": false,
+          "degrade_reason": null
+        },
+        "discovery_meta": {
+          "source": "platform_adp",
+          "query": "工业原料供应商 报价 agentlink.supplier；需要供应「重型脚轮」的采联供应商智能体",
+          "platform_error": null,
+          "discovery_url": "https://wt.ioa.pub/discovery/acps-adp-v2/discover",
+          "degrade": false,
+          "degrade_reason": null,
+          "elapsed_ms": 11697,
+          "cache_hit": false
+        },
+        "rfq_fingerprint": null,
+        "voided": false
+      }
+    },
+    {
+      "step": "confirm_shortlist",
+      "ok": true,
+      "http_ms": 1601.6,
+      "wall_ms": 1601.7,
+      "at": "2026-10-29T05:51:16.616716+00:00",
+      "error": null,
+      "result_summary": {
+        "state": "SOURCING",
+        "case_id": "case-e96ee172"
+      },
+      "result": {
+        "case_id": "case-e96ee172",
+        "state": "SOURCING",
+        "created_at": "2026-10-29T05:51:03.831787+00:00",
+        "updated_at": "2026-10-29T05:51:18.487470+00:00",
+        "created_by": "buyer-a",
+        "brief": {
+          "product_name": "重型脚轮",
+          "quantity": 500,
+          "specifications": {
+            "rated_load_kg_min": 300
+          },
+          "currency": "CNY",
+          "note": "ch5-normal-rfq",
+          "purchase_request_id": "pr-9b231833",
+          "version": 1,
+          "human_approval_status": "approved",
+          "quality_requirements": [
+            "提供批次质检资料"
+          ],
+          "delivery": {
+            "deadline": "2026-11-15",
+            "destination_ref": "addr-buyer-1"
+          }
+        },
+        "candidates": [
+          {
+            "agent_id": "supplier-c",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.8R39K3.RQIABQ.1ABF",
+            "name": "采联供应商智能体C",
+            "description": "太原结构件与软垫供应智能体，代表太原组件厂（山西省太原市小店区长治路66号，邮编030000）。承接询价报价，并对椅架大批量与跨省运输提供促销与运费补贴政策：RM-TUBE-STEEL满500件打8.5折；跨省运输运费补贴一半。主营：扶手、五星脚、钢管制件椅架、标准脚轮、记忆/普通海绵坐垫。拒绝：私下底价、窥探他方报价、无授权真实结算承诺。",
+            "endpoint": "https://39.105.20.113:8014/rpc",
+            "skills": [
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体C",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.8R39K3.RQIABQ.1ABF",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          },
+          {
+            "agent_id": "supplier-a",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.NH4J42.CV501K.0U11",
+            "name": "采联供应商智能体A",
+            "description": "沧州五金结构件供应智能体，代表沧州组件厂（河北省沧州市运河区渤海路56号，邮编061000）。承接座椅零部件询价与报价，主打价格竞争力与脚轮大批量优惠（RM-CASTER-300/200 单品满500件该单品总价九折），并可应询价方要求向物流侧询运。主营：扶手组件、五星脚底座、气压棒、重型/标准脚轮、钢管制件椅架。挂牌价按目录与公开促销结算，无私下底价通道。拒绝：窥探他方报价、无授权承诺真实发货结算、处理非本厂目录SKU。",
+            "endpoint": "https://39.105.20.113:8011/rpc",
+            "skills": [
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体A",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.NH4J42.CV501K.0U11",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          },
+          {
+            "agent_id": "supplier-b",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.SHDUXP.AKGA0G.0768",
+            "name": "采联供应商智能体B",
+            "description": "邢台软装供应智能体，代表邢台软装厂（河北省邢台市襄都区中兴路120号，邮编054000）。承接座椅面料与海绵的定制化询价报价，强调品质等定制字段与起订量约束（面料MOQ50、海绵MOQ20）；任意软装组合货价满10000减1000。主营：高档/普通座椅面料、记忆/普通海绵坐垫。低于起订量拒报或引导改量。拒绝：无定制要素的无效询价、私下底价、窥探他方报价。",
+            "endpoint": "https://39.105.20.113:8013/rpc",
+            "skills": [
+              "agentlink.supplier.moq-validate",
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体B",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.SHDUXP.AKGA0G.0768",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          }
+        ],
+        "shortlist": [
+          {
+            "agent_id": "supplier-a",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.NH4J42.CV501K.0U11",
+            "name": "采联供应商智能体A",
+            "description": "沧州五金结构件供应智能体，代表沧州组件厂（河北省沧州市运河区渤海路56号，邮编061000）。承接座椅零部件询价与报价，主打价格竞争力与脚轮大批量优惠（RM-CASTER-300/200 单品满500件该单品总价九折），并可应询价方要求向物流侧询运。主营：扶手组件、五星脚底座、气压棒、重型/标准脚轮、钢管制件椅架。挂牌价按目录与公开促销结算，无私下底价通道。拒绝：窥探他方报价、无授权承诺真实发货结算、处理非本厂目录SKU。",
+            "endpoint": "https://39.105.20.113:8011/rpc",
+            "skills": [
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体A",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.NH4J42.CV501K.0U11",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          },
+          {
+            "agent_id": "supplier-b",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.SHDUXP.AKGA0G.0768",
+            "name": "采联供应商智能体B",
+            "description": "邢台软装供应智能体，代表邢台软装厂（河北省邢台市襄都区中兴路120号，邮编054000）。承接座椅面料与海绵的定制化询价报价，强调品质等定制字段与起订量约束（面料MOQ50、海绵MOQ20）；任意软装组合货价满10000减1000。主营：高档/普通座椅面料、记忆/普通海绵坐垫。低于起订量拒报或引导改量。拒绝：无定制要素的无效询价、私下底价、窥探他方报价。",
+            "endpoint": "https://39.105.20.113:8013/rpc",
+            "skills": [
+              "agentlink.supplier.moq-validate",
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体B",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.SHDUXP.AKGA0G.0768",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          },
+          {
+            "agent_id": "supplier-c",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.8R39K3.RQIABQ.1ABF",
+            "name": "采联供应商智能体C",
+            "description": "太原结构件与软垫供应智能体，代表太原组件厂（山西省太原市小店区长治路66号，邮编030000）。承接询价报价，并对椅架大批量与跨省运输提供促销与运费补贴政策：RM-TUBE-STEEL满500件打8.5折；跨省运输运费补贴一半。主营：扶手、五星脚、钢管制件椅架、标准脚轮、记忆/普通海绵坐垫。拒绝：私下底价、窥探他方报价、无授权真实结算承诺。",
+            "endpoint": "https://39.105.20.113:8014/rpc",
+            "skills": [
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体C",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.8R39K3.RQIABQ.1ABF",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          }
+        ],
+        "shortlist_confirmed": true,
+        "quotes": [],
+        "comparison": null,
+        "decision": null,
+        "negotiate_goal": null,
+        "negotiate_rounds": [],
+        "auction_bids": [],
+        "selected_supplier": null,
+        "order_draft": null,
+        "shipping_quote": null,
+        "contract": null,
+        "buyer_confirmed": false,
+        "supplier_confirmed": false,
+        "audit": [
+          {
+            "at": "2026-10-29T05:51:03.831809+00:00",
+            "event": "created",
+            "state": "DRAFT"
+          },
+          {
+            "at": "2026-10-29T05:51:05.157125+00:00",
+            "event": "discover_start",
+            "state": "DISCOVERING"
+          },
+          {
+            "at": "2026-10-29T05:51:16.875424+00:00",
+            "event": "discover_done",
+            "state": "SHORTLIST_PENDING"
+          },
+          {
+            "at": "2026-10-29T05:51:18.487497+00:00",
+            "event": "shortlist_confirmed",
+            "state": "SOURCING"
+          }
+        ],
+        "hitl_pending": null,
+        "discovery_meta": {
+          "source": "platform_adp",
+          "query": "工业原料供应商 报价 agentlink.supplier；需要供应「重型脚轮」的采联供应商智能体",
+          "platform_error": null,
+          "discovery_url": "https://wt.ioa.pub/discovery/acps-adp-v2/discover",
+          "degrade": false,
+          "degrade_reason": null,
+          "elapsed_ms": 11697,
+          "cache_hit": false
+        },
+        "rfq_fingerprint": null,
+        "voided": false
+      }
+    },
+    {
+      "step": "rfq_parallel_aip",
+      "ok": true,
+      "http_ms": 6992.4,
+      "wall_ms": 6992.5,
+      "at": "2026-10-29T05:51:23.609272+00:00",
+      "error": null,
+      "result_summary": {
+        "state": "COMPARE_PENDING",
+        "case_id": "case-e96ee172",
+        "quote_count": 1,
+        "errors": [
+          "supplier-b: 本厂目录无此物料: RM-CASTER-300 (重型脚轮)",
+          "supplier-c: 本厂目录无此物料: RM-CASTER-300 (重型脚轮)"
+        ],
+        "suppliers": [
+          null
+        ]
+      },
+      "result": {
+        "case_id": "case-e96ee172",
+        "state": "COMPARE_PENDING",
+        "created_at": "2026-10-29T05:51:03.831787+00:00",
+        "updated_at": "2026-10-29T05:51:25.454170+00:00",
+        "created_by": "buyer-a",
+        "brief": {
+          "product_name": "重型脚轮",
+          "quantity": 500,
+          "specifications": {
+            "rated_load_kg_min": 300
+          },
+          "currency": "CNY",
+          "note": "ch5-normal-rfq",
+          "purchase_request_id": "pr-9b231833",
+          "version": 1,
+          "human_approval_status": "approved",
+          "quality_requirements": [
+            "提供批次质检资料"
+          ],
+          "delivery": {
+            "deadline": "2026-11-15",
+            "destination_ref": "addr-buyer-1"
+          }
+        },
+        "candidates": [
+          {
+            "agent_id": "supplier-c",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.8R39K3.RQIABQ.1ABF",
+            "name": "采联供应商智能体C",
+            "description": "太原结构件与软垫供应智能体，代表太原组件厂（山西省太原市小店区长治路66号，邮编030000）。承接询价报价，并对椅架大批量与跨省运输提供促销与运费补贴政策：RM-TUBE-STEEL满500件打8.5折；跨省运输运费补贴一半。主营：扶手、五星脚、钢管制件椅架、标准脚轮、记忆/普通海绵坐垫。拒绝：私下底价、窥探他方报价、无授权真实结算承诺。",
+            "endpoint": "https://39.105.20.113:8014/rpc",
+            "skills": [
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体C",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.8R39K3.RQIABQ.1ABF",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          },
+          {
+            "agent_id": "supplier-a",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.NH4J42.CV501K.0U11",
+            "name": "采联供应商智能体A",
+            "description": "沧州五金结构件供应智能体，代表沧州组件厂（河北省沧州市运河区渤海路56号，邮编061000）。承接座椅零部件询价与报价，主打价格竞争力与脚轮大批量优惠（RM-CASTER-300/200 单品满500件该单品总价九折），并可应询价方要求向物流侧询运。主营：扶手组件、五星脚底座、气压棒、重型/标准脚轮、钢管制件椅架。挂牌价按目录与公开促销结算，无私下底价通道。拒绝：窥探他方报价、无授权承诺真实发货结算、处理非本厂目录SKU。",
+            "endpoint": "https://39.105.20.113:8011/rpc",
+            "skills": [
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体A",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.NH4J42.CV501K.0U11",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          },
+          {
+            "agent_id": "supplier-b",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.SHDUXP.AKGA0G.0768",
+            "name": "采联供应商智能体B",
+            "description": "邢台软装供应智能体，代表邢台软装厂（河北省邢台市襄都区中兴路120号，邮编054000）。承接座椅面料与海绵的定制化询价报价，强调品质等定制字段与起订量约束（面料MOQ50、海绵MOQ20）；任意软装组合货价满10000减1000。主营：高档/普通座椅面料、记忆/普通海绵坐垫。低于起订量拒报或引导改量。拒绝：无定制要素的无效询价、私下底价、窥探他方报价。",
+            "endpoint": "https://39.105.20.113:8013/rpc",
+            "skills": [
+              "agentlink.supplier.moq-validate",
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体B",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.SHDUXP.AKGA0G.0768",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          }
+        ],
+        "shortlist": [
+          {
+            "agent_id": "supplier-a",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.NH4J42.CV501K.0U11",
+            "name": "采联供应商智能体A",
+            "description": "沧州五金结构件供应智能体，代表沧州组件厂（河北省沧州市运河区渤海路56号，邮编061000）。承接座椅零部件询价与报价，主打价格竞争力与脚轮大批量优惠（RM-CASTER-300/200 单品满500件该单品总价九折），并可应询价方要求向物流侧询运。主营：扶手组件、五星脚底座、气压棒、重型/标准脚轮、钢管制件椅架。挂牌价按目录与公开促销结算，无私下底价通道。拒绝：窥探他方报价、无授权承诺真实发货结算、处理非本厂目录SKU。",
+            "endpoint": "https://39.105.20.113:8011/rpc",
+            "skills": [
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体A",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.NH4J42.CV501K.0U11",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          },
+          {
+            "agent_id": "supplier-b",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.SHDUXP.AKGA0G.0768",
+            "name": "采联供应商智能体B",
+            "description": "邢台软装供应智能体，代表邢台软装厂（河北省邢台市襄都区中兴路120号，邮编054000）。承接座椅面料与海绵的定制化询价报价，强调品质等定制字段与起订量约束（面料MOQ50、海绵MOQ20）；任意软装组合货价满10000减1000。主营：高档/普通座椅面料、记忆/普通海绵坐垫。低于起订量拒报或引导改量。拒绝：无定制要素的无效询价、私下底价、窥探他方报价。",
+            "endpoint": "https://39.105.20.113:8013/rpc",
+            "skills": [
+              "agentlink.supplier.moq-validate",
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体B",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.SHDUXP.AKGA0G.0768",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          },
+          {
+            "agent_id": "supplier-c",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.8R39K3.RQIABQ.1ABF",
+            "name": "采联供应商智能体C",
+            "description": "太原结构件与软垫供应智能体，代表太原组件厂（山西省太原市小店区长治路66号，邮编030000）。承接询价报价，并对椅架大批量与跨省运输提供促销与运费补贴政策：RM-TUBE-STEEL满500件打8.5折；跨省运输运费补贴一半。主营：扶手、五星脚、钢管制件椅架、标准脚轮、记忆/普通海绵坐垫。拒绝：私下底价、窥探他方报价、无授权真实结算承诺。",
+            "endpoint": "https://39.105.20.113:8014/rpc",
+            "skills": [
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体C",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.8R39K3.RQIABQ.1ABF",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          }
+        ],
+        "shortlist_confirmed": true,
+        "quotes": [
+          {
+            "schema_type": "agentlink.initial_quote",
+            "schema_version": "1.0",
+            "business_id": "case-e96ee172",
+            "payload": {
+              "quote_id": "quote-java-2d328cd7",
+              "purchase_request_id": "pr-9b231833",
+              "supplier_agent_id": "supplier-a",
+              "version": 1,
+              "status": "initial_quote",
+              "product": {
+                "name": "重型脚轮300kg",
+                "sku": "RM-CASTER-300",
+                "specification": {
+                  "rated_load_kg_min": 300
+                },
+                "quantity": 500
+              },
+              "unit_price": 18.0,
+              "currency": "CNY",
+              "tax_included": true,
+              "available_quantity": 2000,
+              "lead_time_days": 6,
+              "line_qty_discount": {
+                "label": "脚轮单品满500件该单品总价九折",
+                "threshold_qty": 500,
+                "discount_pct": 0.1,
+                "applied": true,
+                "list_unit": 20.0,
+                "unit_after": 18.0,
+                "save_per_unit": 2.0
+              },
+              "shipping_cost": null,
+              "valid_until": "2026-10-30T05:51:20.489890773Z",
+              "conditions": [],
+              "strategy_tag": "price-first",
+              "bargain_room": 1000.0,
+              "policy_hints": [
+                "脚轮单品满500件该单品总价九折 / 满500件 / 减10%"
+              ],
+              "promo_preview": {
+                "line_qty_save": 1000.0,
+                "full_reduction_save": 0.0,
+                "goods_after_promo": 9000.0,
+                "cross_province_subsidy": {
+                  "eligible": false,
+                  "applied": false,
+                  "uncertain": false,
+                  "subsidy_amount": 0.0,
+                  "freight_after": null,
+                  "note": null
+                },
+                "next_tier": null
+              },
+              "negotiation_style": "threshold_trade_not_pure_cut",
+              "pricing_mode": "list_plus_promo_only",
+              "runtime": "java-langchain4j"
+            }
+          }
+        ],
+        "comparison": {
+          "quotes": [
+            {
+              "quote_id": "quote-java-2d328cd7",
+              "supplier_agent_id": "supplier-a",
+              "unit_price": 18.0,
+              "lead_time_days": 6,
+              "shipping_cost": null,
+              "shipping_unknown": true,
+              "strategy_tag": "price-first",
+              "bargain_room": 1000.0,
+              "valid_until": "2026-10-30T05:51:20.489890773Z",
+              "available_quantity": 2000
+            }
+          ],
+          "note": "shipping_cost null means unknown, not zero"
+        },
+        "decision": null,
+        "negotiate_goal": null,
+        "negotiate_rounds": [],
+        "auction_bids": [],
+        "selected_supplier": null,
+        "order_draft": null,
+        "shipping_quote": null,
+        "contract": null,
+        "buyer_confirmed": false,
+        "supplier_confirmed": false,
+        "audit": [
+          {
+            "at": "2026-10-29T05:51:03.831809+00:00",
+            "event": "created",
+            "state": "DRAFT"
+          },
+          {
+            "at": "2026-10-29T05:51:05.157125+00:00",
+            "event": "discover_start",
+            "state": "DISCOVERING"
+          },
+          {
+            "at": "2026-10-29T05:51:16.875424+00:00",
+            "event": "discover_done",
+            "state": "SHORTLIST_PENDING"
+          },
+          {
+            "at": "2026-10-29T05:51:18.487497+00:00",
+            "event": "shortlist_confirmed",
+            "state": "SOURCING"
+          },
+          {
+            "at": "2026-10-29T05:51:25.454184+00:00",
+            "event": "rfq_done",
+            "state": "COMPARE_PENDING"
+          }
+        ],
+        "hitl_pending": {
+          "gate": "compare_decide",
+          "prompt": "已收到 1 家 Partner 报价，请三选一决策",
+          "role": "Leader·采购商A",
+          "phase": "compare",
+          "hint": "可下单草案、议价、竞价，或拒绝本轮报价",
+          "next_hint": "可下单草案、议价、竞价，或拒绝本轮报价",
+          "decisions": [
+            "approve",
+            "edit",
+            "reject",
+            "respond"
+          ],
+          "options": [
+            "order",
+            "negotiate",
+            "auction"
+          ],
+          "status": "awaiting"
+        },
+        "discovery_meta": {
+          "source": "platform_adp",
+          "query": "工业原料供应商 报价 agentlink.supplier；需要供应「重型脚轮」的采联供应商智能体",
+          "platform_error": null,
+          "discovery_url": "https://wt.ioa.pub/discovery/acps-adp-v2/discover",
+          "degrade": false,
+          "degrade_reason": null,
+          "elapsed_ms": 11697,
+          "cache_hit": false
+        },
+        "rfq_fingerprint": "supplier-a,supplier-b,supplier-c",
+        "voided": false,
+        "rfq_errors": [
+          "supplier-b: 本厂目录无此物料: RM-CASTER-300 (重型脚轮)",
+          "supplier-c: 本厂目录无此物料: RM-CASTER-300 (重型脚轮)"
+        ]
+      }
+    },
+    {
+      "step": "decide_order_or_compare",
+      "ok": false,
+      "http_ms": 7511.1,
+      "wall_ms": 7511.1,
+      "at": "2026-10-29T05:51:31.120416+00:00",
+      "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)>",
+      "result_summary": null,
+      "result": {
+        "error": "<urlopen error [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)>"
+      }
+    },
+    {
+      "step": "metrics",
+      "ok": true,
+      "http_ms": 0.0,
+      "wall_ms": 0.0,
+      "at": "2026-10-29T05:51:33.052208+00:00",
+      "error": null,
+      "result_summary": {
+        "access_count": 149,
+        "message_count": 128,
+        "unique_task_ids": 145,
+        "unique_message_ids": 125,
+        "success_rate": 0.9329,
+        "status_breakdown": {
+          "awaiting-completion": 20,
+          "awaiting-input": 1,
+          "200": 118,
+          "500": 10
+        },
+        "access_trend_14d": [
+          {
+            "date": "2026-10-25",
+            "access": 27
+          },
+          {
+            "date": "2026-10-26",
+            "access": 43
+          },
+          {
+            "date": "2026-10-27",
+            "access": 44
+          },
+          {
+            "date": "2026-10-28",
+            "access": 32
+          },
+          {
+            "date": "2026-10-29",
+            "access": 3
+          }
+        ],
+        "kpi": {
+          "access": 149,
+          "messages": 128,
+          "tasks": 145,
+          "success_rate_pct": 93.3
+        }
+      },
+      "result": {
+        "access_count": 149,
+        "message_count": 128,
+        "unique_task_ids": 145,
+        "unique_message_ids": 125,
+        "success_rate": 0.9329,
+        "status_breakdown": {
+          "awaiting-completion": 20,
+          "awaiting-input": 1,
+          "200": 118,
+          "500": 10
+        },
+        "access_trend_14d": [
+          {
+            "date": "2026-10-25",
+            "access": 27
+          },
+          {
+            "date": "2026-10-26",
+            "access": 43
+          },
+          {
+            "date": "2026-10-27",
+            "access": 44
+          },
+          {
+            "date": "2026-10-28",
+            "access": 32
+          },
+          {
+            "date": "2026-10-29",
+            "access": 3
+          }
+        ],
+        "kpi": {
+          "access": 149,
+          "messages": 128,
+          "tasks": 145,
+          "success_rate_pct": 93.3
+        }
+      }
+    }
+  ],
+  "protocol": {
+    "wutong_discovery": true,
+    "discovery_url": "https://wt.ioa.pub/discovery/acps-adp-v2/discover",
+    "aip_rfq": true,
+    "amp_expected": "Leader send + Partner receive Access/Message on each RFQ task",
+    "agents": [
+      "buyer-a",
+      "supplier-a",
+      "supplier-b",
+      "supplier-c"
+    ]
+  },
+  "metrics": {
+    "access_count": 149,
+    "message_count": 128,
+    "unique_task_ids": 145,
+    "unique_message_ids": 125,
+    "success_rate": 0.9329,
+    "status_breakdown": {
+      "awaiting-completion": 20,
+      "awaiting-input": 1,
+      "200": 118,
+      "500": 10
+    },
+    "access_trend_14d": [
+      {
+        "date": "2026-10-25",
+        "access": 27
+      },
+      {
+        "date": "2026-10-26",
+        "access": 43
+      },
+      {
+        "date": "2026-10-27",
+        "access": 44
+      },
+      {
+        "date": "2026-10-28",
+        "access": 32
+      },
+      {
+        "date": "2026-10-29",
+        "access": 3
+      }
+    ],
+    "kpi": {
+      "access": 149,
+      "messages": 128,
+      "tasks": 145,
+      "success_rate_pct": 93.3
+    }
+  },
+  "finished_at": "2026-10-29T05:51:33.052264+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "path": "group_auction",
+  "case_id": "case-fba29488",
+  "note": "2026-10-29 现场复现：发现平台命中3家；RFQ因目录仅供应A有RM-CASTER-300得1条报价；decide(auction)后auction返回bids=3/priced=1，transport=rpc（组群MQ未命中时回退）；最终ORDER_DRAFT选中supplier-a。历史组群E2E（group_e2e_case_smoke.md）曾验证transport=group与TCO三方案。",
+  "timeline": [
+    {"step": "create_case", "ok": true, "http_ms": 1257.3, "result_summary": {"state": "DRAFT", "case_id": "case-fba29488"}},
+    {"step": "discover_platform_adp", "ok": true, "http_ms": 23616.3, "result_summary": {"state": "SHORTLIST_PENDING", "source": "platform_adp", "degrade": false, "cache_hit": false, "elapsed_ms_platform": 22036, "candidate_count": 3}},
+    {"step": "confirm_shortlist", "ok": true, "http_ms": 2168.0, "result_summary": {"state": "SOURCING"}},
+    {"step": "rfq_parallel_aip", "ok": true, "http_ms": 3449.2, "result_summary": {"state": "COMPARE_PENDING", "quote_count": 1}},
+    {"step": "decide_auction", "ok": true, "http_ms": 1853.0, "result_summary": {"state": "BIDDING"}},
+    {"step": "auction_group_tco", "ok": true, "http_ms": 2895.4, "result_summary": {"state": "BID_REVIEW", "transport": "rpc", "bid_count": 3, "priced": 1, "scheme_count": 0}},
+    {"step": "decide_order_best_tco", "ok": true, "http_ms": 3182.3, "result_summary": {"state": "ORDER_DRAFT", "selected_supplier": "supplier-a", "unit_price": 18.0, "goods_total": 9000.0, "ticket": "tk-ord-ase-fba29488"}}
+  ],
+  "protocol": {
+    "wutong_discovery": true,
+    "aip_rfq": true,
+    "group_mq": "本次回退rpc；历史冒烟验证过group",
+    "amp_metrics_after": {"access_count": 155, "message_count": 134, "unique_task_ids": 151, "success_rate": 0.9097}
+  }
+}

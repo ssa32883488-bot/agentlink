@@ -1,0 +1,53 @@
+{
+  "ok": false,
+  "partial_ok": true,
+  "transport": "rpc",
+  "priced": 2,
+  "probe": {
+    "abort": false,
+    "reason": null,
+    "invite_ms": 4001.0,
+    "members": [
+      {
+        "agent_id": "supplier-a",
+        "aic": "1.2.156.3088.1.BUPT.2HY2P9.WP4OOG.AE0C7A.1CHP",
+        "join_url": "https://39.105.20.113:8011/group/join",
+        "status": "joined"
+      },
+      {
+        "agent_id": "supplier-c",
+        "aic": "1.2.156.3088.1.BUPT.2HY2P9.1VQMIO.SY0GFP.09NH",
+        "join_url": "https://39.105.20.113:8014/group/join",
+        "status": "error:PartnerNetworkError"
+      }
+    ],
+    "priced": 1,
+    "schemes": 0
+  },
+  "auction": {
+    "case_id": "case-768aad64",
+    "transport": "rpc",
+    "priced": 2,
+    "schemes": 0,
+    "best": null,
+    "fallback": true,
+    "abort": "insufficient_joined_suppliers"
+  },
+  "done": {
+    "case_id": "case-768aad64",
+    "ticket": "tk-ord-ase-768aad64-supplier-a-M-CASTER-200",
+    "supplier": "supplier-a",
+    "goods": 6750.0,
+    "transport": "rpc",
+    "priced": 2
+  },
+  "shots": [
+    "01_buyer_tickets.png",
+    "02_buyer_chat.png",
+    "03_buyer_audit.png",
+    "04_sa_tickets.png",
+    "05_sc_tickets.png",
+    "06_logistics.png"
+  ],
+  "case_id": "case-768aad64"
+}

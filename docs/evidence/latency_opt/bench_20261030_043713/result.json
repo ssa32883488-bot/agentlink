@@ -1,0 +1,39 @@
+{
+  "case_id": "case-ad47a401",
+  "ok": true,
+  "state": "BID_REVIEW",
+  "discover_ms": 16112.1,
+  "rfq_ms": 7444.4,
+  "auction_wall_ms": 7632.6,
+  "auction_timings_ms": {
+    "group_ms": 7261.1,
+    "group_invite_ms": 5003.1,
+    "group_early_abort": true,
+    "group_abort_reason": "insufficient_joined_suppliers",
+    "rpc_parallel_ms": 311.1,
+    "rpc_parallel_n": 2,
+    "auction_total_ms": 7574.9,
+    "priced": 2
+  },
+  "transport": "rpc",
+  "early_abort": true,
+  "abort_reason": "insufficient_joined_suppliers",
+  "rpc_parallel": true,
+  "priced": 2,
+  "bids": [
+    {
+      "supplier_agent_id": "supplier-a",
+      "unit_price": 13.5,
+      "transport": "rpc",
+      "error": null
+    },
+    {
+      "supplier_agent_id": "supplier-c",
+      "unit_price": 15.0,
+      "transport": "rpc",
+      "error": null
+    }
+  ],
+  "total_ms": 31388.4,
+  "ssh_wall_ms": 32399.4
+}

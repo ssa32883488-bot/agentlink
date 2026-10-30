@@ -1,0 +1,58 @@
+strategy_tag: price-first
+# 河北沧州组件厂 · 五金/结构件价格优先
+# 无底价：挂牌价仅经 promotions 优惠；采购议价也只走活动门槛
+organization: 沧州组件厂
+ship_from_city: 沧州
+kg_per_unit: 0.4
+default_tax_included: true
+buffer_days: 1
+production_days: 5
+available_quantity: 2000
+default_sku: RM-CASTER-300
+base_cost: 17.0
+markup: 0.176
+bargain_discount: 0
+max_unit_concession_pct: 0
+catalog:
+  - sku: RM-ARMREST
+    name: 扶手组件
+    unit_price: 30
+    available_quantity: 600
+    lead_time_days: 5
+  - sku: RM-BASE-NYLON
+    name: 五星脚底座
+    unit_price: 40
+    available_quantity: 500
+    lead_time_days: 6
+  - sku: RM-GASLIFT
+    name: 气压棒
+    unit_price: 50
+    available_quantity: 400
+    lead_time_days: 5
+  - sku: RM-CASTER-300
+    name: 重型脚轮300kg
+    unit_price: 20
+    available_quantity: 2000
+    lead_time_days: 5
+  - sku: RM-CASTER-200
+    name: 标准脚轮200kg
+    unit_price: 15
+    available_quantity: 2500
+    lead_time_days: 5
+  - sku: RM-TUBE-STEEL
+    name: 钢管制件椅架
+    unit_price: 85
+    available_quantity: 300
+    lead_time_days: 7
+promotions:
+  line_qty_discount:
+    - label: 脚轮单品满500件该单品总价九折
+      skus: [RM-CASTER-300, RM-CASTER-200]
+      threshold_qty: 500
+      discount_pct: 0.10
+merchant:
+  trade_name: 沧州组件厂
+  province: 河北
+  city: 沧州
+  postal_code: "061000"
+  address: 河北省沧州市运河区渤海路56号

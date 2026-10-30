@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'/>
+<title>链路二：组群/竞价选商（发现→RFQ→auction→订单草案）</title>
+<style>
+body{font-family:'Microsoft YaHei',sans-serif;margin:24px;background:#fff;color:#222}
+h1{font-size:22px} h2{font-size:16px;margin-top:20px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border:1px solid #999;padding:8px;vertical-align:top}
+th{background:#e8eef5}
+.badge{display:inline-block;padding:4px 10px;background:#e8f5e9;border:1px solid #81c784;border-radius:4px}
+pre{background:#f7f7f7;padding:12px;border:1px solid #ddd;white-space:pre-wrap}
+.note{color:#666;font-size:12px}
+</style></head><body>
+<h1>链路二：组群/竞价选商（发现→RFQ→auction→订单草案）</h1>
+<p>case_id: <b>case-fba29488</b> · path: <b>group_auction</b> ·
+<span class='badge'>链路完成</span></p>
+<p class='note'>证据时间线：HTTP调用buyer-a公网API；发现步骤命中梧桐ADP；RFQ经AIP跨云调用供应Partner。</p>
+<h2>步骤时序与时延（ms）</h2>
+<table><tr><th>#</th><th>步骤</th><th>结果</th><th>HTTP时延ms</th><th>摘要</th></tr>
+<tr><td>1</td><td>create_case</td><td>PASS</td><td>1257.3</td><td><code>{"state": "DRAFT", "case_id": "case-fba29488"}</code></td></tr><tr><td>2</td><td>discover_platform_adp</td><td>PASS</td><td>23616.3</td><td><code>{"state": "SHORTLIST_PENDING", "source": "platform_adp", "degrade": false, "cache_hit": false, "elapsed_ms_platform": 22036, "candidate_count": 3}</code></td></tr><tr><td>3</td><td>confirm_shortlist</td><td>PASS</td><td>2168.0</td><td><code>{"state": "SOURCING"}</code></td></tr><tr><td>4</td><td>rfq_parallel_aip</td><td>PASS</td><td>3449.2</td><td><code>{"state": "COMPARE_PENDING", "quote_count": 1}</code></td></tr><tr><td>5</td><td>decide_auction</td><td>PASS</td><td>1853.0</td><td><code>{"state": "BIDDING"}</code></td></tr><tr><td>6</td><td>auction_group_tco</td><td>PASS</td><td>2895.4</td><td><code>{"state": "BID_REVIEW", "transport": "rpc", "bid_count": 3, "priced": 1, "scheme_count": 0}</code></td></tr><tr><td>7</td><td>decide_order_best_tco</td><td>PASS</td><td>3182.3</td><td><code>{"state": "ORDER_DRAFT", "selected_supplier": "supplier-a", "unit_price": 18.0, "goods_total": 9000.0, "ticket": "tk-ord-ase-fba29488"}</code></td></tr>
+</table>
+<h2>协议作用面</h2>
+<pre>{
+  "wutong_discovery": true,
+  "aip_rfq": true,
+  "group_mq": "本次回退rpc；历史冒烟验证过group",
+  "amp_metrics_after": {
+    "access_count": 155,
+    "message_count": 134,
+    "unique_task_ids": 151,
+    "success_rate": 0.9097
+  }
+}</pre>
+</body></html>

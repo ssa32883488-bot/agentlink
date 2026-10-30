@@ -1,0 +1,41 @@
+[project]
+name = "agentlink"
+version = "0.2.0"
+description = "采联 AgentLink — ACPs 互联 + commerce_v2 双路径采销协同"
+requires-python = ">=3.12,<3.15"
+dependencies = [
+  "acps-sdk",
+  "wit-framework==2.1.0",
+  "fastapi>=0.100.0",
+  "uvicorn[standard]>=0.30.0",
+  "pydantic>=2.0.0",
+  "pydantic-settings>=2.0.0",
+  "httpx>=0.24.0",
+  "pyyaml>=6.0",
+  "langgraph>=0.2.0",
+  "langchain-core>=0.3.0",
+  "openai>=2.32.0,<3.0.0",
+  "kafka-python>=2.0.2",
+]
+
+[tool.uv.sources]
+# 发布包内置 vendor；本机开发若无 vendor，可改为兄弟目录 ACPs-community/acps-sdk
+acps-sdk = { path = "vendor/acps-sdk", editable = true }
+wit-framework = { path = "vendor/wit_framework-2.1.0-cp312.cp313.cp314-none-any.whl" }
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0.0", "pytest-asyncio>=0.23.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["agentlink_runtime"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"agents" = "agents"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+pythonpath = ["."]

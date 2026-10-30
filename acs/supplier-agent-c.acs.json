@@ -1,0 +1,138 @@
+{
+  "aic": "1.2.156.3088.1.BUPT.2HY2P9.1VQMIO.SY0GFP.09NH",
+  "active": true,
+  "lastModifiedTime": "2026-10-28T08:06:00+08:00",
+  "protocolVersion": "02.02",
+  "name": "采联供应商智能体C",
+  "description": "太原结构件与软垫供应智能体，代表太原组件厂（山西省太原市小店区长治路66号，邮编030000）。承接询价报价，并对椅架大批量与跨省运输提供促销与运费补贴政策：RM-TUBE-STEEL满500件打8.5折；跨省运输运费补贴一半。主营：扶手、五星脚、钢管制件椅架、标准脚轮、记忆/普通海绵坐垫。拒绝：私下底价、窥探他方报价、无授权真实结算承诺。",
+  "version": "1.0.0",
+  "provider": {
+    "countryCode": "CN",
+    "organization": "后浪队",
+    "department": "AgentLink",
+    "url": "https://39.105.20.113:8014",
+    "license": "腾讯云端点 HTTPS+Let's Encrypt(ashui.online)；阿里云端点 HTTPS 公网IP。审核通过后使用平台 CA mTLS",
+    "name": "李佳铖",
+    "email": "3572962849@qq.com",
+    "domainRegistrations": [
+      {
+        "domain": "39.105.20.113",
+        "registrationNumber": "NONE",
+        "registrationType": "WHOIS"
+      }
+    ]
+  },
+  "securitySchemes": {
+    "mtls": {
+      "type": "mutualTLS",
+      "description": "智能体间 mTLS 双向认证"
+    }
+  },
+  "endPoints": [
+    {
+      "url": "https://39.105.20.113:8014/rpc",
+      "transport": "JSONRPC",
+      "security": [
+        {
+          "mtls": []
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "notification": false,
+    "messageQueue": []
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "agentlink.supplier.quote",
+      "name": "目录报价与产品规格获取",
+      "description": "按结构化询价返回目录单价、规格、可供量与交期。发货地太原。",
+      "version": "1.0.0",
+      "tags": ["supply", "quote", "scarce-substitute", "supplier-c", "taiyuan", "agentlink"],
+      "examples": [
+        "钢管制件椅架500件报价与规格",
+        "扶手与五星脚组合询价"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.supplier.promotions",
+      "name": "获取产品优惠政策",
+      "description": "返回并结算公开促销：椅架满500打8.5折；跨省发运运费补贴一半。",
+      "version": "1.0.0",
+      "tags": ["supply", "promotion", "freight-subsidy", "supplier-c", "agentlink"],
+      "examples": [
+        "椅架500件是否8.5折",
+        "发往河北是否享受跨省运费半补"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.supplier.inventory-leadtime",
+      "name": "是否有货以及交期答复",
+      "description": "答复库存是否充足与交期；紧张时可说明限制，不泄露他方订单。",
+      "version": "1.0.0",
+      "tags": ["supply", "inventory", "leadtime", "supplier-c", "agentlink"],
+      "examples": [
+        "椅架可售是否满足500，交期几天"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.supplier.negotiate",
+      "name": "议价沟通",
+      "description": "围绕满量折扣、跨省运费补贴与交期议价，金额以目录价与公开促销为准。",
+      "version": "1.0.0",
+      "tags": ["supply", "negotiate", "supplier-c", "agentlink"],
+      "examples": [
+        "椅架凑满500并确认跨省半补后的综合报价"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.supplier.freight-inquire",
+      "name": "被动询运",
+      "description": "应询价方要求向物流智能体询运，并结合跨省补贴政策回传有效运费信息。发货地太原。",
+      "version": "1.0.0",
+      "tags": ["supply", "freight", "logistics", "supplier-c", "agentlink"],
+      "examples": [
+        "太原发保定椅架运费及跨省补贴后金额"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.supplier.fulfillment",
+      "name": "发货地供货协同",
+      "description": "基于太原发货地提供供货协同（数量、交期、跨省线路）。",
+      "version": "1.0.0",
+      "tags": ["supply", "fulfillment", "supplier-c", "taiyuan", "agentlink"],
+      "examples": [
+        "确认太原至保定椅架供货批次"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    }
+  ],
+  "visibility": "public",
+  "certificate": {
+    "altNames": {
+      "ip": ["39.105.20.113"]
+    },
+    "requestedValidity": 825
+  }
+}

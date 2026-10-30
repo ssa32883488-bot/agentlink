@@ -1,0 +1,11 @@
+domain_id: buyer-b
+domain_title: 采购商B · 采联控制台（本地）
+ui_port: 8092
+agents:
+  - id: buyer-b
+    title: 采购商B
+    role: buyer
+    api_base: http://127.0.0.1:8012
+    rpc_hint: Leader HTTP API
+    blurb: 本地 HTTP · commerce_v2
+    workspace: chat

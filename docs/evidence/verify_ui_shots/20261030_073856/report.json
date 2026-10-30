@@ -1,0 +1,511 @@
+{
+  "run_id": "20261030_073856",
+  "reports": [
+    {
+      "title": "普通采购（发现→短名单→RFQ→下单→物流→激活）",
+      "ok": true,
+      "issues": [],
+      "discover": {
+        "case_id": "case-ddb29892",
+        "state": "SHORTLIST_PENDING",
+        "n": 3,
+        "ids": [
+          "supplier-a",
+          "supplier-b",
+          "supplier-c"
+        ],
+        "source": "platform_adp"
+      },
+      "shortlist": {
+        "case_id": "case-ddb29892",
+        "state": "SOURCING",
+        "shortlist": [
+          {
+            "agent_id": "supplier-a",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.WP4OOG.AE0C7A.1CHP",
+            "name": "采联供应商智能体A",
+            "description": "沧州五金结构件供应智能体，代表沧州组件厂（河北省沧州市运河区渤海路56号，邮编061000）。承接座椅零部件询价与报价，主打价格竞争力与脚轮大批量优惠（RM-CASTER-300/200 单品满500件该单品总价九折），并可应询价方要求向物流侧询运。主营：扶手组件、五星脚底座、气压棒、重型/标准脚轮、钢管制件椅架。挂牌价按目录与公开促销结算，无私下底价通道。拒绝：窥探他方报价、无授权承诺真实发货结算、处理非本厂目录SKU。",
+            "endpoint": "https://39.105.20.113:8011/rpc",
+            "skills": [
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体A",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.WP4OOG.AE0C7A.1CHP",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.promotions"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          },
+          {
+            "agent_id": "supplier-b",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.6CW2XR.2UXYPG.1CQG",
+            "name": "采联供应商智能体B",
+            "description": "邢台软装供应智能体，代表邢台软装厂（河北省邢台市襄都区中兴路120号，邮编054000）。承接座椅面料与海绵的定制化询价报价，强调品质等定制字段与起订量约束（面料MOQ50、海绵MOQ20）；任意软装组合货价满10000减1000。主营：高档/普通座椅面料、记忆/普通海绵坐垫。低于起订量拒报或引导改量。拒绝：无定制要素的无效询价、私下底价、窥探他方报价。",
+            "endpoint": "https://39.105.20.113:8013/rpc",
+            "skills": [
+              "agentlink.supplier.moq-validate",
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体B",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.6CW2XR.2UXYPG.1CQG",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.quote"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          },
+          {
+            "agent_id": "supplier-c",
+            "aic": "1.2.156.3088.1.BUPT.2HY2P9.1VQMIO.SY0GFP.09NH",
+            "name": "采联供应商智能体C",
+            "description": "太原结构件与软垫供应智能体，代表太原组件厂（山西省太原市小店区长治路66号，邮编030000）。承接询价报价，并对椅架大批量与跨省运输提供促销与运费补贴政策：RM-TUBE-STEEL满500件打8.5折；跨省运输运费补贴一半。主营：扶手、五星脚、钢管制件椅架、标准脚轮、记忆/普通海绵坐垫。拒绝：私下底价、窥探他方报价、无授权真实结算承诺。",
+            "endpoint": "https://39.105.20.113:8014/rpc",
+            "skills": [
+              "agentlink.supplier.quote",
+              "agentlink.supplier.promotions",
+              "agentlink.supplier.inventory-leadtime",
+              "agentlink.supplier.negotiate",
+              "agentlink.supplier.freight-inquire",
+              "agentlink.supplier.fulfillment"
+            ],
+            "source": "platform_adp",
+            "acs": {
+              "name": "采联供应商智能体C",
+              "aic": "1.2.156.3088.1.BUPT.2HY2P9.1VQMIO.SY0GFP.09NH",
+              "version": "1.0.0",
+              "_matched_skill": "agentlink.supplier.inventory-leadtime"
+            },
+            "source_label": "平台发现",
+            "degrade": false
+          }
+        ]
+      },
+      "rfq": {
+        "case_id": "case-ddb29892",
+        "state": "COMPARE_PENDING",
+        "quote_n": 1,
+        "suppliers": [
+          null
+        ],
+        "prices": [
+          {
+            "id": null,
+            "unit": null,
+            "total": null
+          }
+        ]
+      },
+      "order": {
+        "case_id": "case-ddb29892",
+        "state": "ORDER_DRAFT",
+        "supplier": "supplier-a",
+        "product": "重型脚轮300kg",
+        "qty": 500,
+        "unit": 18.0,
+        "goods": 9000.0,
+        "ticket": "tk-ord-ase-ddb29892-supplier-a-M-CASTER-300"
+      },
+      "ship": {
+        "state": "CONTRACT_PENDING",
+        "ship": null,
+        "ticket": "tk-ord-ase-ddb29892-supplier-a-M-CASTER-300"
+      },
+      "order_done": {
+        "case_id": "case-ddb29892",
+        "ticket": "tk-ord-ase-ddb29892-supplier-a-M-CASTER-300"
+      },
+      "sup": {
+        "acked": [
+          {
+            "agent": "supplier-a",
+            "tid": "tk-ord-ase-ddb29892-supplier-a-M-CASTER-300",
+            "effective": true,
+            "title": "销售订单 · 重型脚轮300kg × 500 · 买方 buyer-a · 货款 9000.0"
+          },
+          {
+            "agent": "supplier-a",
+            "tid": "tk-ord-ase-7ebd9677-supplier-a-M-CASTER-300",
+            "effective": null,
+            "title": "销售订单 · 脚轮 × 500 · 买方 buyer-a · 货款 9000.0"
+          }
+        ],
+        "logs": []
+      },
+      "finish": {
+        "activated": [
+          {
+            "case": "case-ddb29892",
+            "state": "ACTIVE",
+            "note": ""
+          },
+          {
+            "case": "case-a676bb4c",
+            "state": "ACTIVE",
+            "note": ""
+          }
+        ]
+      }
+    },
+    {
+      "title": "组群竞价（发现→RFQ→auction→TCO下单→物流→激活）",
+      "ok": false,
+      "issues": [
+        "竞价有效出价应≥2: {'case_id': 'case-d9f5601c', 'state': 'BID_REVIEW', 'transport': 'group', 'priced': 1, 'schemes': 1, 'best': {'scheme_id': 'sch-supplier-a', 'supplier_agent_id': 'supplier-a', 'aic': '1.2.156.3088.1.BUPT.2HY2P9.WP4OOG.AE0C7A.1CHP', 'unit_price': 13.5, 'quantity': 500, 'goods_total': 6750.0, 'shipping_cost': 120.0, 'tco': 6870.0, 'lead_time_days': 6, 'eta_days': 7, 'origin_city': '沧州', 'dest_postal': '071000', 'bid_id': 'bid-c517d6f1', 'transport': 'group'}, 'bids': [{'id': 'supplier-a', 'unit': 13.5, 'tco': 6870.0}, {'id': 'supplier-b', 'unit': None, 'tco': None}, {'id': 'supplier-c', 'unit': None, 'tco': None}]}"
+      ],
+      "discover": {
+        "case_id": "case-d9f5601c",
+        "state": "SHORTLIST_PENDING",
+        "n": 3,
+        "ids": [
+          "supplier-a",
+          "supplier-b",
+          "supplier-c"
+        ]
+      },
+      "rfq": {
+        "case_id": "case-d9f5601c",
+        "state": "COMPARE_PENDING",
+        "quotes": 2
+      },
+      "auction": {
+        "case_id": "case-d9f5601c",
+        "state": "BID_REVIEW",
+        "transport": "group",
+        "priced": 1,
+        "schemes": 1,
+        "best": {
+          "scheme_id": "sch-supplier-a",
+          "supplier_agent_id": "supplier-a",
+          "aic": "1.2.156.3088.1.BUPT.2HY2P9.WP4OOG.AE0C7A.1CHP",
+          "unit_price": 13.5,
+          "quantity": 500,
+          "goods_total": 6750.0,
+          "shipping_cost": 120.0,
+          "tco": 6870.0,
+          "lead_time_days": 6,
+          "eta_days": 7,
+          "origin_city": "沧州",
+          "dest_postal": "071000",
+          "bid_id": "bid-c517d6f1",
+          "transport": "group"
+        },
+        "bids": [
+          {
+            "id": "supplier-a",
+            "unit": 13.5,
+            "tco": 6870.0
+          },
+          {
+            "id": "supplier-b",
+            "unit": null,
+            "tco": null
+          },
+          {
+            "id": "supplier-c",
+            "unit": null,
+            "tco": null
+          }
+        ]
+      },
+      "order": {
+        "case_id": "case-d9f5601c",
+        "state": "ORDER_DRAFT",
+        "supplier": "supplier-a",
+        "product": "标准脚轮200kg",
+        "qty": 500,
+        "goods": 6750.0,
+        "ship": 120.0,
+        "ticket": "tk-ord-ase-d9f5601c-supplier-a-M-CASTER-200"
+      },
+      "done": {
+        "case_id": "case-d9f5601c",
+        "ticket": "tk-ord-ase-d9f5601c-supplier-a-M-CASTER-200",
+        "priced": 1,
+        "transport": "group"
+      },
+      "sup": {
+        "acked": [
+          {
+            "agent": "supplier-a",
+            "tid": "tk-ord-ase-d9f5601c-supplier-a-M-CASTER-200",
+            "effective": true,
+            "title": "销售订单 · 标准脚轮200kg × 500 · 买方 buyer-a · 货款 6750.0"
+          }
+        ],
+        "logs": []
+      },
+      "finish": {
+        "activated": [
+          {
+            "case": "case-d9f5601c",
+            "state": "ACTIVE",
+            "note": ""
+          }
+        ]
+      }
+    }
+  ],
+  "shots": [
+    {
+      "step": 1,
+      "label": "N00_buyer_home_chat",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "01_N00_buyer_home_chat.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 2,
+      "label": "N00_buyer_tickets_before",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "02_N00_buyer_tickets_before.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 3,
+      "label": "N01_after_discover_chat",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "03_N01_after_discover_chat.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 4,
+      "label": "N01_after_discover_tickets",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "04_N01_after_discover_tickets.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 5,
+      "label": "N02_chat_status_after_discover",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "05_N02_chat_status_after_discover.png",
+      "chat": "查看当前采购案状态与候选供应商列表，用表格说明。",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 6,
+      "label": "N03_after_rfq_chat",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "06_N03_after_rfq_chat.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 7,
+      "label": "N04_chat_compare_quotes",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "07_N04_chat_compare_quotes.png",
+      "chat": "汇总刚才三家询价结果，比较单价与总价，给出推荐并说明理由。",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 8,
+      "label": "N05_sa_tickets_after_rfq",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "08_N05_sa_tickets_after_rfq.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at http://39.105.20.113:8091/\nCall log:\n  - navigating to \"http://39.105.20.113:8091/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 9,
+      "label": "N05_sb_tickets_after_rfq",
+      "portal": "supplier-b",
+      "page": "tickets",
+      "file": "09_N05_sb_tickets_after_rfq.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at http://39.105.20.113:8093/\nCall log:\n  - navigating to \"http://39.105.20.113:8093/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 10,
+      "label": "N05_sc_tickets_after_rfq",
+      "portal": "supplier-c",
+      "page": "tickets",
+      "file": "10_N05_sc_tickets_after_rfq.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at http://39.105.20.113:8094/\nCall log:\n  - navigating to \"http://39.105.20.113:8094/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 11,
+      "label": "N06_buyer_tickets_after_order",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "11_N06_buyer_tickets_after_order.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 12,
+      "label": "N07_sa_tickets_after_order",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "12_N07_sa_tickets_after_order.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at http://39.105.20.113:8091/\nCall log:\n  - navigating to \"http://39.105.20.113:8091/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 13,
+      "label": "N08_chat_order_status",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "13_N08_chat_order_status.png",
+      "chat": "查看当前订单草案与物流缺口，说明下一步需谁确认。",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 14,
+      "label": "N09_sa_after_ack",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "14_N09_sa_after_ack.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at http://39.105.20.113:8091/\nCall log:\n  - navigating to \"http://39.105.20.113:8091/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 15,
+      "label": "N10_logistics_after_sup_ack",
+      "portal": "logistics",
+      "page": "tickets",
+      "file": "15_N10_logistics_after_sup_ack.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8095/\nCall log:\n  - navigating to \"https://ashui.online:8095/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 16,
+      "label": "N11_buyer_final_tickets",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "16_N11_buyer_final_tickets.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 17,
+      "label": "N12_buyer_audit",
+      "portal": "buyer-a",
+      "page": "audit",
+      "file": "17_N12_buyer_audit.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 18,
+      "label": "N13_logistics_final",
+      "portal": "logistics",
+      "page": "tickets",
+      "file": "18_N13_logistics_final.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8095/\nCall log:\n  - navigating to \"https://ashui.online:8095/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 19,
+      "label": "N14_chat_final",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "19_N14_chat_final.png",
+      "chat": "确认普通采购案是否已激活，用一句话结论。",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 20,
+      "label": "A00_buyer_before_auction",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "20_A00_buyer_before_auction.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 21,
+      "label": "A01_buyer_tickets_after_auction",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "21_A01_buyer_tickets_after_auction.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 22,
+      "label": "A02_chat_auction_summary",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "22_A02_chat_auction_summary.png",
+      "chat": "说明刚才组群竞价的运输方式、有效出价数、最优 TCO 方案与中标供应方。",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 23,
+      "label": "A03_sa_tickets",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "23_A03_sa_tickets.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at http://39.105.20.113:8091/\nCall log:\n  - navigating to \"http://39.105.20.113:8091/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 24,
+      "label": "A03_sb_tickets",
+      "portal": "supplier-b",
+      "page": "tickets",
+      "file": "24_A03_sb_tickets.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at http://39.105.20.113:8093/\nCall log:\n  - navigating to \"http://39.105.20.113:8093/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 25,
+      "label": "A03_sc_tickets",
+      "portal": "supplier-c",
+      "page": "tickets",
+      "file": "25_A03_sc_tickets.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at http://39.105.20.113:8094/\nCall log:\n  - navigating to \"http://39.105.20.113:8094/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 26,
+      "label": "A04_sa_after_ack",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "26_A04_sa_after_ack.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at http://39.105.20.113:8091/\nCall log:\n  - navigating to \"http://39.105.20.113:8091/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 27,
+      "label": "A05_logistics",
+      "portal": "logistics",
+      "page": "tickets",
+      "file": "27_A05_logistics.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8095/\nCall log:\n  - navigating to \"https://ashui.online:8095/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 28,
+      "label": "A06_buyer_final",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "28_A06_buyer_final.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 29,
+      "label": "A07_buyer_audit",
+      "portal": "buyer-a",
+      "page": "audit",
+      "file": "29_A07_buyer_audit.png",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    },
+    {
+      "step": 30,
+      "label": "A08_chat_final",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "30_A08_chat_final.png",
+      "chat": "确认组群竞价案是否完成激活，一句话结论。",
+      "error": "Page.goto: net::ERR_PROXY_CONNECTION_FAILED at https://ashui.online:8090/\nCall log:\n  - navigating to \"https://ashui.online:8090/\", waiting until \"domcontentloaded\"\n"
+    }
+  ]
+}

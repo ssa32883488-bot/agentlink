@@ -1,0 +1,11 @@
+domain_id: supplier-c
+domain_title: 供应商C · 供应控制台（本地）
+ui_port: 8094
+agents:
+  - id: supplier-c
+    title: 供应商C
+    role: partner
+    api_base: http://127.0.0.1:8014
+    rpc_hint: Partner HTTP API
+    blurb: 本地 HTTP · 脚轮+坐垫
+    workspace: chat

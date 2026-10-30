@@ -1,0 +1,126 @@
+{
+  "aic": "1.2.156.3088.1.BUPT.2HY2P9.L18AT6.DR2I98.0IWJ",
+  "active": true,
+  "lastModifiedTime": "2026-10-28T08:06:00+08:00",
+  "protocolVersion": "02.02",
+  "name": "采联采购智能体B",
+  "description": "面向平价办公与家用座椅产线的采购协同智能体，代表承德办公家具制造厂（河北省承德市双桥区武烈路88号，邮编067000）在平台上以成本优先完成标准档零部件寻源、询价比价、组群竞价与到厂物流协同。主营平价办公椅、家用椅批量制造与装配。需求聚焦标准档零部件：扶手、五星脚、气压棒、椅架、标准脚轮（200kg）、普通海绵坐垫、普通座椅面料；强调性价比、起订与交期可控，收货地为承德。拒绝：高定奢华专供寻源、泄露预算、越权自动成交。",
+  "version": "1.0.0",
+  "provider": {
+    "countryCode": "CN",
+    "organization": "后浪队",
+    "department": "AgentLink",
+    "url": "https://ashui.online:8012",
+    "license": "腾讯云端点 HTTPS+Let's Encrypt(ashui.online)；阿里云端点 HTTPS 公网IP。审核通过后使用平台 CA mTLS",
+    "name": "李佳铖",
+    "email": "3572962849@qq.com",
+    "domainRegistrations": [
+      {
+        "domain": "ashui.online",
+        "registrationNumber": "NONE",
+        "registrationType": "WHOIS"
+      }
+    ]
+  },
+  "securitySchemes": {
+    "mtls": {
+      "type": "mutualTLS",
+      "description": "智能体间 mTLS 双向认证"
+    }
+  },
+  "endPoints": [
+    {
+      "url": "https://ashui.online:8012/rpc",
+      "transport": "JSONRPC",
+      "security": [
+        {
+          "mtls": []
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "notification": false,
+    "messageQueue": []
+  },
+  "defaultInputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "agentlink.buyer.cost-sourcing",
+      "name": "成本导向寻源与询价比价",
+      "description": "按标准档物料与成本优先策略发现供应商并批量询价比价，收货地为河北承德（067000）。不自动成交。",
+      "version": "1.0.0",
+      "tags": ["procurement", "rfq", "cost-first", "buyer-b", "agentlink", "chengde"],
+      "examples": [
+        "询标准脚轮200kg共800件的低价供应商并比较",
+        "普通面料与普通海绵组合询价比价"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.buyer.group-bidding",
+      "name": "发起多智能体组群竞价",
+      "description": "发起多智能体组群竞价，组织多家供应商并行出价，服务平价产线成本优选。最终成交需人工确认。",
+      "version": "1.0.0",
+      "tags": ["procurement", "group-bidding", "multi-agent", "buyer-b", "agentlink"],
+      "examples": [
+        "对标准脚轮与普通海绵短名单发起组群竞价"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.buyer.standard-procurement",
+      "name": "标准档物料采购推进",
+      "description": "推进标准档零部件采购案状态（发现、询价、议价、订单草案），把门禁节点交给人工确认。",
+      "version": "1.0.0",
+      "tags": ["procurement", "case", "workflow", "buyer-b", "agentlink"],
+      "examples": [
+        "按缺口补货推进普通海绵与标准脚轮采购案"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.buyer.negotiate",
+      "name": "议价与订单协同",
+      "description": "对目标供应商议价并协同生成订单草案，不越权自动下单成交。",
+      "version": "1.0.0",
+      "tags": ["procurement", "negotiate", "order", "buyer-b", "agentlink"],
+      "examples": [
+        "就邢台软装普通面料报价议价并生成订单草案"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    },
+    {
+      "id": "agentlink.buyer.freight-request",
+      "name": "收货地运力需求发起",
+      "description": "以承德（067000）为收货地，向物流智能体发起运力需求并获取费用时效，用于到岸成本核算。",
+      "version": "1.0.0",
+      "tags": ["procurement", "logistics", "freight", "buyer-b", "chengde", "agentlink"],
+      "examples": [
+        "从邢台发普通面料到承德，询经济拼车运费"
+      ],
+      "inputModes": ["application/json", "text/plain"],
+      "outputModes": ["application/json", "text/plain"]
+    }
+  ],
+  "visibility": "public",
+  "certificate": {
+    "altNames": {
+      "dns": ["ashui.online", "www.ashui.online"],
+      "ip": ["81.70.46.119"]
+    },
+    "requestedValidity": 825
+  }
+}

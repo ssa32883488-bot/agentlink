@@ -1,0 +1,384 @@
+{
+  "run_id": "20261030_110903",
+  "q1": "我打算购买 500 套重型脚轮300kg，请发现供应商并报价。先给出候选，再统一询价；我确认后再下单。",
+  "q2": "单物料复杂采购：标准脚轮200kg、数量500（多家目录都有）。请发现多家供应商后统一询价；若多家都能供且可比，请走组群竞价+TCO，再选最优方案下单。",
+  "reports": [
+    {
+      "title": "普通询价全链路",
+      "ok": true,
+      "issues": [],
+      "question": "我打算购买 500 套重型脚轮300kg，请发现供应商并报价。先给出候选，再统一询价；我确认后再下单。",
+      "discover": {
+        "case_id": "case-49fd43fa",
+        "state": "SHORTLIST_PENDING",
+        "n": 3,
+        "ids": [
+          "supplier-a",
+          "supplier-b",
+          "supplier-c"
+        ],
+        "source": "platform_adp"
+      },
+      "shortlist": {
+        "case_id": "case-49fd43fa",
+        "state": "SOURCING"
+      },
+      "rfq": {
+        "case_id": "case-49fd43fa",
+        "state": "COMPARE_PENDING",
+        "quote_n": 1,
+        "suppliers": [
+          null
+        ]
+      },
+      "order": {
+        "case_id": "case-49fd43fa",
+        "state": "ORDER_DRAFT",
+        "supplier": "supplier-a",
+        "product": "重型脚轮300kg",
+        "qty": 500,
+        "unit": 18.0,
+        "goods": 9000.0,
+        "ticket": "tk-ord-ase-49fd43fa-supplier-a-M-CASTER-300"
+      },
+      "ship": {
+        "state": "CONTRACT_PENDING",
+        "ticket": "tk-ord-ase-49fd43fa-supplier-a-M-CASTER-300"
+      },
+      "done": {
+        "case_id": "case-49fd43fa",
+        "ticket": "tk-ord-ase-49fd43fa-supplier-a-M-CASTER-300"
+      },
+      "sup": {
+        "acked": [
+          {
+            "agent": "supplier-a",
+            "tid": "tk-ord-ase-49fd43fa-supplier-a-M-CASTER-300",
+            "effective": true
+          }
+        ],
+        "logs": []
+      },
+      "finish": {
+        "activated": [
+          {
+            "case": "case-49fd43fa",
+            "state": "ACTIVE"
+          }
+        ]
+      }
+    },
+    {
+      "title": "组群竞价全链路",
+      "ok": true,
+      "issues": [],
+      "question": "单物料复杂采购：标准脚轮200kg、数量500（多家目录都有）。请发现多家供应商后统一询价；若多家都能供且可比，请走组群竞价+TCO，再选最优方案下单。",
+      "discover": {
+        "case_id": "case-5f036b22",
+        "state": "SHORTLIST_PENDING",
+        "n": 2
+      },
+      "rfq": {
+        "case_id": "case-5f036b22",
+        "state": "COMPARE_PENDING",
+        "quotes": 2
+      },
+      "auction": {
+        "case_id": "case-5f036b22",
+        "state": "BID_REVIEW",
+        "transport": "rpc",
+        "priced": 2,
+        "schemes": 0,
+        "best": null,
+        "fallback": true,
+        "abort": "insufficient_joined_suppliers",
+        "bids": [
+          {
+            "id": "supplier-a",
+            "unit": 15.0
+          },
+          {
+            "id": "supplier-c",
+            "unit": 15.0
+          }
+        ]
+      },
+      "order": {
+        "case_id": "case-5f036b22",
+        "state": "ORDER_DRAFT",
+        "supplier": "supplier-a",
+        "product": "标准脚轮200kg",
+        "qty": 500,
+        "goods": 6750.0,
+        "ticket": "tk-ord-ase-5f036b22-supplier-a-M-CASTER-200"
+      },
+      "done": {
+        "case_id": "case-5f036b22",
+        "ticket": "tk-ord-ase-5f036b22-supplier-a-M-CASTER-200",
+        "transport": "rpc",
+        "priced": 2
+      },
+      "sup": {
+        "acked": [
+          {
+            "agent": "supplier-a",
+            "tid": "tk-ord-ase-5f036b22-supplier-a-M-CASTER-200",
+            "effective": true
+          }
+        ],
+        "logs": []
+      },
+      "finish": {
+        "activated": [
+          {
+            "case": "case-5f036b22",
+            "state": "ACTIVE"
+          }
+        ]
+      },
+      "transport": "rpc"
+    }
+  ],
+  "shots": [
+    {
+      "step": 1,
+      "label": "N00_empty_chat",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "01_N00_empty_chat.png",
+      "note": "新线程空对话",
+      "chat": "",
+      "error": null
+    },
+    {
+      "step": 2,
+      "label": "N01_ask_normal_rfq",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "02_N01_ask_normal_rfq.png",
+      "note": "用户提问后助手回复",
+      "chat": "我打算购买 500 套重型脚轮300kg，请发现供应商并报价。先给出候选，再统一询价；我确认后再下单。",
+      "error": null
+    },
+    {
+      "step": 3,
+      "label": "N02_shortlist_try",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "03_N02_shortlist_try.png",
+      "note": "已勾选短名单并提交",
+      "chat": "",
+      "error": null
+    },
+    {
+      "step": 4,
+      "label": "N03_choice_try",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "04_N03_choice_try.png",
+      "note": "未找到选项: ('询价', '报价', '继续', '确认')",
+      "chat": "",
+      "error": null
+    },
+    {
+      "step": 5,
+      "label": "N04_chat_status_after_core",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "05_N04_chat_status_after_core.png",
+      "note": "用户提问后助手回复",
+      "chat": "刚才那条采购需求已推进，请用表格说明采购案 case-49fd43fa：状态、候选、询价与订单关键信息。",
+      "error": null
+    },
+    {
+      "step": 6,
+      "label": "N05_buyer_tickets",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "06_N05_buyer_tickets.png",
+      "error": null
+    },
+    {
+      "step": 7,
+      "label": "N06_sa_tickets",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "07_N06_sa_tickets.png",
+      "error": null
+    },
+    {
+      "step": 8,
+      "label": "N06_sb_tickets",
+      "portal": "supplier-b",
+      "page": "tickets",
+      "file": "08_N06_sb_tickets.png",
+      "error": null
+    },
+    {
+      "step": 9,
+      "label": "N06_sc_tickets",
+      "portal": "supplier-c",
+      "page": "tickets",
+      "file": "09_N06_sc_tickets.png",
+      "error": null
+    },
+    {
+      "step": 10,
+      "label": "N07_sa_after_ack",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "10_N07_sa_after_ack.png",
+      "error": null
+    },
+    {
+      "step": 11,
+      "label": "N08_logistics",
+      "portal": "logistics",
+      "page": "tickets",
+      "file": "11_N08_logistics.png",
+      "error": null
+    },
+    {
+      "step": 12,
+      "label": "N09_final_tickets",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "12_N09_final_tickets.png",
+      "error": null
+    },
+    {
+      "step": 13,
+      "label": "N10_audit",
+      "portal": "buyer-a",
+      "page": "audit",
+      "file": "13_N10_audit.png",
+      "error": null
+    },
+    {
+      "step": 14,
+      "label": "N11_chat_final",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "14_N11_chat_final.png",
+      "note": "用户提问后助手回复",
+      "chat": "确认采购案 case-49fd43fa 是否 ACTIVE，一句话。",
+      "error": null
+    },
+    {
+      "step": 15,
+      "label": "A00_empty_chat",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "15_A00_empty_chat.png",
+      "note": "新线程空对话",
+      "chat": "",
+      "error": null
+    },
+    {
+      "step": 16,
+      "label": "A01_ask_group_auction",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "16_A01_ask_group_auction.png",
+      "note": "用户提问后助手回复",
+      "chat": "单物料复杂采购：标准脚轮200kg、数量500（多家目录都有）。请发现多家供应商后统一询价；若多家都能供且可比，请走组群竞价+TCO，再选最优方案下单。",
+      "error": null
+    },
+    {
+      "step": 17,
+      "label": "A02_shortlist_try",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "17_A02_shortlist_try.png",
+      "note": "已勾选短名单并提交",
+      "chat": "",
+      "error": null
+    },
+    {
+      "step": 18,
+      "label": "A03_choice_auction",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "18_A03_choice_auction.png",
+      "note": "点击选项: 发起组群竞价（推荐）",
+      "chat": "",
+      "error": null
+    },
+    {
+      "step": 19,
+      "label": "A04_chat_auction_summary",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "19_A04_chat_auction_summary.png",
+      "note": "用户提问后助手回复",
+      "chat": "说明采购案 case-5f036b22 竞价 transport、有效出价、中标方与订单。",
+      "error": null
+    },
+    {
+      "step": 20,
+      "label": "A05_buyer_tickets",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "20_A05_buyer_tickets.png",
+      "error": null
+    },
+    {
+      "step": 21,
+      "label": "A06_sa_tickets",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "21_A06_sa_tickets.png",
+      "error": null
+    },
+    {
+      "step": 22,
+      "label": "A06_sc_tickets",
+      "portal": "supplier-c",
+      "page": "tickets",
+      "file": "22_A06_sc_tickets.png",
+      "error": null
+    },
+    {
+      "step": 23,
+      "label": "A07_sa_after_ack",
+      "portal": "supplier-a",
+      "page": "tickets",
+      "file": "23_A07_sa_after_ack.png",
+      "error": null
+    },
+    {
+      "step": 24,
+      "label": "A08_logistics",
+      "portal": "logistics",
+      "page": "tickets",
+      "file": "24_A08_logistics.png",
+      "error": null
+    },
+    {
+      "step": 25,
+      "label": "A09_final_tickets",
+      "portal": "buyer-a",
+      "page": "tickets",
+      "file": "25_A09_final_tickets.png",
+      "error": null
+    },
+    {
+      "step": 26,
+      "label": "A10_audit",
+      "portal": "buyer-a",
+      "page": "audit",
+      "file": "26_A10_audit.png",
+      "error": null
+    },
+    {
+      "step": 27,
+      "label": "A11_chat_final",
+      "portal": "buyer-a",
+      "page": "chat",
+      "file": "27_A11_chat_final.png",
+      "note": "用户提问后助手回复",
+      "chat": "确认采购案 case-5f036b22 是否 ACTIVE，一句话。",
+      "error": null
+    }
+  ]
+}

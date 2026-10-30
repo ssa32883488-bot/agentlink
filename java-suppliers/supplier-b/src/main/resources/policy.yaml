@@ -1,0 +1,55 @@
+strategy_tag: custom-moq
+# 河北邢台软装厂 · 面料/海绵
+# 无底价：挂牌价仅经 promotions 优惠；采购议价也只走活动门槛
+organization: 邢台软装厂
+ship_from_city: 邢台
+kg_per_unit: 0.25
+default_tax_included: true
+buffer_days: 3
+production_days_base: 10
+available_quantity: 1500
+moq: 50
+min_custom_fields:
+  - material
+  - color
+default_sku: RM-FABRIC-PRO
+base_cost: 28.0
+markup: 0.25
+bargain_discount: 0
+max_unit_concession_pct: 0
+catalog:
+  - sku: RM-FABRIC-PRO
+    name: 高档座椅面料
+    unit_price: 35
+    available_quantity: 1500
+    lead_time_days: 10
+    moq: 50
+  - sku: RM-FABRIC-STD
+    name: 普通座椅面料
+    unit_price: 12
+    available_quantity: 3000
+    lead_time_days: 8
+    moq: 50
+  - sku: RM-FOAM-MEM
+    name: 记忆海绵坐垫
+    unit_price: 55
+    available_quantity: 800
+    lead_time_days: 10
+    moq: 20
+  - sku: RM-FOAM-STD
+    name: 普通海绵坐垫
+    unit_price: 20
+    available_quantity: 1200
+    lead_time_days: 8
+    moq: 20
+promotions:
+  full_reduction:
+    - label: 软装任意组合货价满1万减1000
+      threshold_amount: 10000
+      reduce_amount: 1000
+merchant:
+  trade_name: 邢台软装厂
+  province: 河北
+  city: 邢台
+  postal_code: "054000"
+  address: 河北省邢台市襄都区中兴路120号
